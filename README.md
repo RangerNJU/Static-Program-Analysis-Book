@@ -1,10 +1,8 @@
-# Static-Program-Analysis-Book
+# Introduction
 
 [Gitbook在线阅读地址](https://ranger-nju.gitbook.io/static-program-analysis-book/)
 
 [GitHub项目地址](https://github.com/RangerNJU/Static-Program-Analysis-Book)
-
-----
 
 Getting started with static program analysis. Read this and start writing your first static program analyzer!
 

@@ -4,15 +4,35 @@
 
 ## 静态程序分析的抽象定义与诠释
 
-### 一句话定义（TODO：中文翻译）
+### 定义
 
-> Static analysis analyzes a program P to reason about its behaviors and determines whether it satisfies some properties befo re running P.
+> Static analysis analyzes a program P to reason about its behaviors and determines whether it satisfies some properties before running P.
 
-### 一句话诠释（TODO：中文翻译）
+-   Does P contain any private information leaks?
+-   Does P dereference any null pointers?
+-   Are all the cast operations in P safe?
+-   Can v1 and v2 in P point to the same memory location?
+-   Will certain assert statements in P fail?
+-   Is this piece of code in P dead (so that it could be eliminated)?
+
+即：
+
+对一个程序P，静态程序分析在运行P之前分析它的行为并确认它是否满足某些性质。例如：
+
+-   P会导致隐私信息泄漏吗？
+-   P中会不会有空指针被解引用？
+-   P中的所有cast操作（掌握JAVA或C++的读者应该熟悉这一操作）都是安全的吗？
+-   P中的两个指针是否会指向同一个内存地址？
+-   P中某个特定的断言会失败吗？
+-   P中的某部分代码是死代码吗？
+
+### 诠释
 
 > Ensure \(or get close to\) soundness, while making good trade-offs between analysis precision and analysis speed.
 
 在分析精度和速度之间做平衡的同时，保证（或近似）soundness。
+
+*对于soundness这个词，有很多种不同的翻译方式，如可靠性、安全性等。*
 
 ## 静态程序分析的具体解释
 
@@ -20,21 +40,26 @@
 
 ### Abstraction
 
+<img src="../.gitbook/assets/DtoA.png" style="zoom: 50%;" />
+
+
+
 **抽象是将值从Concrete Domain（具体域）映射到Abstract Domain（抽象域）的过程。**
 
-举个例子：\(TODO：加图\)
+例如，在上图中：
 
-Concrete Domain中，变量的值可以是具体的值，也可能是某种表达式或函数的返回值。
+-   Concrete Domain中变量的值可以是具体的值，也可能是某种表达式或函数的返回值。
+-   Abstract Domain中变量的值分为五类：
+    1.  正
+    2.  负
+    3.  零
+    4.  unknown（未知）通常表达为正的T，读作top。
+    5.  undefined（未定）通常表达为上下颠倒的T，读作bottom。
 
-Abstract Domain中，变量的值分为五类：
+关于unknown和undefined：
 
-* 正
-* 负
-* 零
-* unknown（未知）：根据表达式或函数返回决定，程序运行时会有具体的正负零数值，但运行前只通过该表达式无法确定。如应用C语言中的三目运算符（TODO：加Link）`x = flag ? 1 : -1`中x的值就是unknown的。
-* undefined（未定）：程序运行时会遇到错误，并产生未定义行为（TODO：加Link）。如许多语言中divided by zero（除数为零）通常会触发异常/硬件错误，此时如`a=b/0`中a的值就是undefined的。
-
-其中unknown通常表达为正的T，读作top；undefined通常表达为上下颠倒的T，读作bottom。
+-   unknown（未知）：根据表达式或函数返回决定，程序运行时会有具体的正负零数值，但运行前只通过该表达式无法确定。如应用C语言中的三目运算符（TODO：加Link）`x = flag ? 1 : -1`中x的值就是unknown的。
+-   undefined（未定）程序运行时会遇到错误，并产生未定义行为（TODO：加Link）。如许多语言中divided by zero（除数为零）通常会触发异常/硬件错误，此时如`a=b/0`中a的值就是undefined的。
 
 ### Over-approximation
 

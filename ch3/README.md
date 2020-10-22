@@ -80,7 +80,7 @@ Lattice上数据流分析的框架：
 
 **不动点定理**
 
-前提： Complete Lattice/Monotonic/Finite.
+前提： Complete Lattice/Function is Monotonic/Lattice is Finite.
 
 效果：给出了固定的求不动点的方法。
 
@@ -101,8 +101,81 @@ Lattice上数据流分析的框架：
 1.  重新定义问题的Scope（上下文敏感指针分析可以跑得必非上下文敏感指针分析更快）。
 2.  科研任务/工作任务需要通过沟通缩小Scope。
 
+### Relate Iterative Algorithm to Fixed-Point Theorem
+
+上节课的Product Lattice。
+
+Transfer Function**应该被设计为**是单调的。
+join和meet都可以被证明是单调的。
+
+回答问题：
+1.  Yes。因为不动点原理。
+2. Yes。因为推理出来...
+
+何时能达到不动点？
+首先定义高度。
+
+提示：每个node一次一步，一个node最坏情况下走h步。所有node最坏情况下要走$h*k$步。
+
+所以算法快慢与程序的规模和Lattice Domain有关。
+
+### May and Must Analyses, a Lattice View
+
+相当于总结上文。
+TODO：从前三节课程的理解到一张图解释
+
+所有分析过程一定从不安全的结果向安全但没有意义的结果推进，
+以reaching definition为例子，每个块被初始化为全0，代表没有definition可以reach到特定程序点。
+Truth的位置在Safe和Unsafe中间，越接近Safe，精度就越低。
+
+问题：为什么一定能越过Truth达到Fixed Point呢？
+是否Safe是由Transfer Function和Mering的策略决定的，也就是由设计算法的人决定的。
+
+<img src="../.gitbook/assets/mayMustSum.png" style="zoom: 50%;" />
+
+### Meet/Join-Over-All-Paths Solution(MOP)
+
+>   我们的结论有多准？
+
+Meet：一旦数据流汇聚了，如何处理？
+
+PL基础小知识：
+程序中的汇聚从何而来？<-分支和循环结构
+-   分支：if,switch,try catch, exception, promise(JS) ...
+-   循环：while, do while, for ...
+
+这是分析精度的标杆。
+
+### Iterative Algorithm vs MOP
+
+IA：在每次第一次汇聚的时候就等一等，先merge。不需要枚举，运算量更小，结果没那么准。
+MOP：没必要等，在最后一次汇聚的时候才merge。因为要枚举Path，运算量更大，结果更准。
+
+关于精度，有一个简单的证明。（前提是F满足单调性）。
+
+如果F满足分配律（高中数学）。那么MOP和我们的IA一样准。
+
+好消息！当join/meet使用set union/intersection时（之前举过的三个例子都是可分配的）。
 
 ### 单调性与不动点
 
 ### 函数的可分布性
 
+### Constant Propagation
+
+>   Given a variable x at program point p, determine whether x is guaranteed to hold a constant value at p. 在程序点P指定一个变量X，判断X是否在这点是一个常量。
+
+Undefine->Constant->NotAConstant
+
+下划线表示PL领域的通配符。
+
+
+other -> 两个UNDEF；一个UNDEF一个Constant=>不能是NAC：例如x+y，x第一次是UNDEF，第二次是14，y一直都是2，则两次的结果一次是NAC一次是常量=>这个Transfer Funtion不满足单调性。
+
+## Worklist Algorithm
+
+作为IA的优化版本，懂了IA之后WA很容易懂。
+
+IA适合性质的分析与证明，工作中使用的往往是WA。
+
+WA为什么快->IA为什么慢->

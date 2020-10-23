@@ -10,7 +10,7 @@ Getting started with static program analysis. Read this and start writing your f
 
 # 这一《静态程序分析》教程对谁有用？
 
-学生，开发者，企业都能从中受益。
+学生，开发者，研究者……几乎所有当代生活者都能从中受益。
 
 -   学习方向与程序有关的**学生。** 
     -   计算机方向的学生可以通过深入学习这一领域知识而为自己建立独特的学术和就业优势。
@@ -18,7 +18,7 @@ Getting started with static program analysis. Read this and start writing your f
 -   工作内容与程序有关的**开发者。** 
     -   无论你希望更好地理解[Wiki](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis)上众多的开源或是闭源的静态程序分析技术，还是希望自己开发一个适用于眼下工作内容的静态程序分析器以保证程序质量，了解静态程序分析都会有所帮助。
 -   研究领域与程序相关的**研究者。** 或许你希望微调研究方向，却因没有合适的入门材料而苦恼；或许你希望了解计算机领域的相关知识以期获得启发……这一教程可以作为你的入门材料或是闲暇读物。
--   生活与程序相关的**当代生活者**
+-   生活与程序相关的**每个人**
     -   软件质量是信息化时代的重要议题之一，在这个时代生活与工作，你一定会遇到相关的问题。
     -   在大多数学校和企业中，没有开设该领域的课程。
 
@@ -93,7 +93,7 @@ Getting started with static program analysis. Read this and start writing your f
     1. **无法保证没有bug。** 这是无法遍历所有可能的程序输入的必然结果。
     2. 在当今的由多核与网络应用带来的**并发环境下作用有限。** 某个bug可能只在特定情况下发生，因而难以稳定地复现。如果你对并发程序的测试细节感兴趣，可以参考[《拧龙头法测试并发程序》](https://zhuanlan.zhihu.com/p/51341151)。（截图来自南京大学《形式化语义》课程资料）
     
-    <img src="README.assets/concurrentProgram.png" style="zoom: 67%;" />
+    <img src=".gitbook/assets/concurrentProgram.png" style="zoom: 67%;" />
 
 ### 形式化语义验证
 
@@ -105,7 +105,7 @@ Getting started with static program analysis. Read this and start writing your f
 
     2.  验证代价较高，一般来说非常重要的项目会使用这一方式保证程序质量。甚至在操作系统这样重要的软件中，也并不一定会使用。(截图来自鸿蒙OS直播发布会)
 
-        <img src="README.assets/harmonyOS.png" style="zoom: 67%;" />
+        <img src=".gitbook/assets/harmonyOS.png" style="zoom: 67%;" />
 
 # 加入项目/How to contribute
 

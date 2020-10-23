@@ -15,9 +15,7 @@
 -   Will certain assert statements in P fail?
 -   Is this piece of code in P dead (so that it could be eliminated)?
 
-即：
-
-对一个程序P，静态程序分析在运行P之前分析它的行为并确认它是否满足某些性质。例如：
+即：对一个程序P，静态程序分析在运行P之前分析它的行为并确认它是否满足某些性质。例如：
 
 -   P会导致隐私信息泄漏吗？
 -   P中会不会有空指针被解引用？
@@ -30,9 +28,7 @@
 
 > Ensure \(or get close to\) soundness, while making good trade-offs between analysis precision and analysis speed.
 
-在分析精度和速度之间做平衡的同时，保证（或近似）soundness。
-
-*对于soundness这个词，有很多种不同的翻译方式，如可靠性、安全性等。*
+在分析精度和速度之间做平衡的同时，保证（或近似）soundness。*（对于soundness这个词，有很多种不同的翻译方式，如可靠性、安全性等。）*通常来说，分析的精度要求越高，分析的速度就会越慢。类似的trade-off在计算机世界非常常见。
 
 ## 静态程序分析的具体解释
 
@@ -42,19 +38,17 @@
 
 <img src="../.gitbook/assets/DtoA.png" style="zoom: 50%;" />
 
-
-
-**抽象是将值从Concrete Domain（具体域）映射到Abstract Domain（抽象域）的过程。**
+**抽象是将值从Concrete Domain（具体域）映射到Abstract Domain（抽象域）的过程，也即<u>将具体值映射为抽象值</u>。**
 
 例如，在上图中：
 
--   Concrete Domain中变量的值可以是具体的值，也可能是某种表达式或函数的返回值。
+-   Concrete Domain中变量的值可以是具体的数值，也可能是某种表达式或函数的返回值。
 -   Abstract Domain中变量的值分为五类：
     1.  正
     2.  负
     3.  零
-    4.  unknown（未知）通常表达为正的T，读作top。
-    5.  undefined（未定）通常表达为上下颠倒的T，读作bottom。
+    4.  unknown（未知），通常表达为正的T，读作top
+    5.  undefined（未定），通常表达为上下颠倒的T，读作bottom
 
 关于unknown和undefined：
 
@@ -120,9 +114,25 @@ complete: 报出的问题都是对的 must analysis: outputs information that mu
 
 ## 再讲五块钱的？
 
-### 关于未定义行为（TODO：加Link和解释）
+### 关于未定义行为
 
-### 关于程序测试与分析（TODO：加程序分析的LINK和对比）
+-   TODO 加Link
+
+-   一个经典的未定义行为例子：
+
+    ```c++
+    int a[7];
+    	...
+    int j = 0;
+    
+    //输出结果根据编译器实现不同而不同
+    std::cout << a[j++] + a[j]	
+    ```
+
+### 关于trade-off
+
+-   存储器层次结构：cache-memory-disk-network的经典结构，正是当代计算机设计者们对价格、读写速度和存储容量的典型trade-off。
+-   段页式内存管理：分段和分页方式的存储管理各有其特点，而段页式存储管理将两种方式结合，优缺点互补。
 
 ### 关于判定问题中经常用到的术语
 

@@ -116,7 +116,9 @@ complete: 报出的问题都是对的 must analysis: outputs information that mu
 
 ### 关于未定义行为
 
--   TODO 加Link
+-   [未定义行为](https://en.wikipedia.org/wiki/Undefined_behavior)在Wiki上的解释：
+
+>   In computer programming, undefined behavior (UB) is the result of executing a program whose behavior is prescribed to be unpredictable, in the language specification to which the computer code adheres.
 
 -   一个经典的未定义行为例子：
 
@@ -131,7 +133,7 @@ complete: 报出的问题都是对的 must analysis: outputs information that mu
 
 ### 关于trade-off
 
--   存储器层次结构：cache-memory-disk-network的经典结构，正是当代计算机设计者们对价格、读写速度和存储容量的典型trade-off。
+-   [存储器层次结构](https://en.wikipedia.org/wiki/Memory_hierarchy)：cache-memory-disk-network的经典结构，正是当代计算机设计者们对价格、读写速度和存储容量的典型trade-off。
 -   段页式内存管理：分段和分页方式的存储管理各有其特点，而段页式存储管理将两种方式结合，优缺点互补。
 
 ### 关于判定问题中经常用到的术语

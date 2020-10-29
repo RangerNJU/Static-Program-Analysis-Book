@@ -8,6 +8,17 @@ Getting started with static program analysis. Read this and start writing your f
 
 静态程序分析入门。阅读此书并着手编写你的第一个静态程序分析器吧！
 
+## 我想听到你的声音
+
+-   **批评的意见很有价值。**这是我第一次书写教程，一定有很多做得不好的地方。如果你觉得我写得不好，可以选择提issue或者通过邮箱联系我（ranger.nju#gmail.com)。
+-   如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
+
+
+## 更新记录
+
+1.  Oct, 2020. 设立Github Repo
+2.  29th,Oct 2020. 更新第七课《过程间分析》至第四章节
+
 # 这一《静态程序分析》教程对谁有用？
 
 学生，开发者，研究者……几乎所有当代生活者都能从中受益。
@@ -54,7 +65,7 @@ Getting started with static program analysis. Read this and start writing your f
     -   空指针引用与内存泄漏等：几乎每个程序编写者都被这两个问题所困扰过
 2. 提高程序安全性
     -   Private information leak, injection attack, etc.
-    -   隐私信息泄漏：TODO
+    -   隐私信息泄漏：这一问题在移动应用中较为普遍，如果你感兴趣，可以参考[这篇论文](https://www.ieee-security.org/TC/SP2012/posters/ScanDal.pdf)。
     -   [注入攻击](https://en.wikipedia.org/wiki/Code_injection)：这是网络安全中非常常见的议题。不熟悉的读者可以查看[W3School](https://www.w3schools.com/sql/sql_injection.asp)或[Wiki](https://en.wikipedia.org/wiki/SQL_injection)上关于SQL注入攻击的例子。
 3. 为编译优化提供基础技术
     -   Dead code elimination, code motion, etc.

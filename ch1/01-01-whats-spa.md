@@ -1,5 +1,7 @@
 # 初见——静态分析是什么？
 
+**WARNING：即将进入施工未完毕区域。**
+
 > 静态程序分析是指**不编译**出二进制代码通过测试用例对程序进行测试，仅通过**静态地**分析程序得到程序**不平凡**的性质的过程。
 
 ## 静态程序分析的抽象定义与诠释
@@ -137,4 +139,12 @@ complete: 报出的问题都是对的 must analysis: outputs information that mu
 -   段页式内存管理：分段和分页方式的存储管理各有其特点，而段页式存储管理将两种方式结合，优缺点互补。
 
 ### 关于判定问题中经常用到的术语
+
+在计算机的判定性问题中和各种医学诊断中，都会提到这几种概念：
+1.  True positive
+2.  True negative
+3.  False positive
+4.  False negative
+
+[Youtube上](https://www.youtube.com/watch?v=rFwu69tuMiU)有一个简单的介绍视频。
 

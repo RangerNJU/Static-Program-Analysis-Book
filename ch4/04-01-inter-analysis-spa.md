@@ -105,7 +105,7 @@ A：分别调用A和C中定义的foo方法。
 
 **Static call**
 
--   对于不了解OOP中静态方法的同学可以参考（TODO：C++与Java中的static方法）。具体来说，静态方法前写的是类名，而非静态方法前写的是变量或指针名。 <img src="04-01-inter-analysis-spa.assets/image-20201029224736803.png" style="zoom:50%;" />
+-   对于不了解OOP中静态方法的同学可以参考[这里](https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/)。具体来说，静态方法前写的是类名，而非静态方法前写的是变量或指针名。静态方法不需要依赖实例。 <img src="04-01-inter-analysis-spa.assets/image-20201029224736803.png" style="zoom:50%;" />
 
 **Special call**
 

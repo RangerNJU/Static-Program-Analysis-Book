@@ -65,7 +65,7 @@ Java中Dispatch（决定具体调用哪个方法）的机制：c是一个类的�
 
 >   We define function Dispatch(𝑐, 𝑚) to simulate the procedure of run-time method dispatch.
 
-<img src="../.gitbook/assets/Ex4-6.png" alt="image-20201029224301293" style="zoom:50%;" />
+<img src="../.gitbook/assets/Ex4-6.png"  style="zoom:50%;" />
 
 
 
@@ -73,11 +73,11 @@ Java中Dispatch（决定具体调用哪个方法）的机制：c是一个类的�
 
 Q：两次对foo的调用分别调用了哪个类的foo？
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029224401395.png" alt="image-20201029224401395" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029224401395.png"  style="zoom:50%;" />
 
 A：分别调用A和C中定义的foo方法。
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029224437136.png" alt="image-20201029224437136" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029224437136.png" style="zoom:50%;" />
 
 # Class Hierarchy Analysis (CHA)
 
@@ -94,7 +94,7 @@ A：分别调用A和C中定义的foo方法。
 
 ###  Algorithm of Resolve
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029224506176.png" alt="image-20201029224506176" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029224506176.png" style="zoom:50%;" />
 
 -   call site(cs)就是调用语句，m(method)就是对应的函数签名。
 -   T集合中保存找到的结果
@@ -105,24 +105,24 @@ A：分别调用A和C中定义的foo方法。
 
 **Static call**
 
--   对于不了解OOP中静态方法的同学可以参考（TODO：C++与Java中的static方法）。具体来说，静态方法前写的是类名，而非静态方法前写的是变量或指针名。 <img src="04-01-inter-analysis-spa.assets/image-20201029224736803.png" alt="image-20201029224736803" style="zoom:50%;" />
+-   对于不了解OOP中静态方法的同学可以参考（TODO：C++与Java中的static方法）。具体来说，静态方法前写的是类名，而非静态方法前写的是变量或指针名。 <img src="04-01-inter-analysis-spa.assets/image-20201029224736803.png" style="zoom:50%;" />
 
 **Special call**
 
--   Superclass instance method（super关键字）最为复杂，故优先考虑这种情况<img src="04-01-inter-analysis-spa.assets/image-20201029224820647.png" alt="image-20201029224820647" style="zoom:50%;" />
+-   Superclass instance method（super关键字）最为复杂，故优先考虑这种情况<img src="04-01-inter-analysis-spa.assets/image-20201029224820647.png" style="zoom:50%;" />
 
     -   为什么需要Dispatch函数？考虑这种情况：
 
-        <img src="04-01-inter-analysis-spa.assets/image-20201029224941882.png" alt="image-20201029224941882" style="zoom:50%;" />
+        <img src="04-01-inter-analysis-spa.assets/image-20201029224941882.png" style="zoom:50%;" />
 -   而Private instance method和Constructor（一定由类实现或有默认的构造函数）都会在本类的实现中给出，使用Dispatch函数能够将这三种情况都包含，简化代码。
 
 **Virtual call**
 
--   receiver variable在例子中就是a。<img src="04-01-inter-analysis-spa.assets/image-20201029225106724.png" alt="image-20201029225106724" style="zoom:50%;" />
+-   receiver variable在例子中就是a。<img src="04-01-inter-analysis-spa.assets/image-20201029225106724.png" style="zoom:50%;" />
 
 -   对receiver c和c的所有直接间接子类都作为call site调用Dispatch
 
-一些例子：<img src="04-01-inter-analysis-spa.assets/image-20201029225304889.png" alt="image-20201029225304889" style="zoom:50%;" />
+一些例子：<img src="04-01-inter-analysis-spa.assets/image-20201029225304889.png" style="zoom:50%;" />
 
 ## CHA的特征
 
@@ -133,7 +133,7 @@ A：分别调用A和C中定义的foo方法。
 
 常用于IDE中，给用户提供提示。
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029225350619.png" alt="image-20201029225350619" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029225350619.png" style="zoom:50%;" />
 
 CHA的实际思路和算法。
 
@@ -146,11 +146,11 @@ CHA的实际思路和算法。
 -   For each reachable method 𝑚, resolve target methods for each call site 𝑐𝑠 in 𝑚 via CHA (Resolve(𝑐𝑠))
 -   Repeat until no new method is discovered
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029230138054.png" alt="image-20201029230138054" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029230138054.png" style="zoom:50%;" />
 
 ### Algorithm
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029230224316.png" alt="image-20201029230224316" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029230224316.png" style="zoom:50%;" />
 
 -   Worklist记录需要处理的methods
 -   Call graph是需要构建的目标，是call edges的集合
@@ -160,10 +160,10 @@ CHA的实际思路和算法。
 
 ### Example
 
-1.  初始化<img src="04-01-inter-analysis-spa.assets/image-20201029230504891.png" alt="image-20201029230504891" style="zoom:50%;" />
-2.  处理main后向WL中加入A.foo()<img src="04-01-inter-analysis-spa.assets/image-20201029230535984.png" alt="image-20201029230535984" style="zoom:50%;" />
-3.  中间省略一些步骤，这里面对C.bar()时，虽然会调用A.foo()，但由于A.foo()之前已经处理过（在集合RM中），之后不会再进行处理<img src="04-01-inter-analysis-spa.assets/image-20201029230622120.png" alt="image-20201029230622120" style="zoom: 50%;" />
-4.  这里C.m()是不可达的死代码<img src="04-01-inter-analysis-spa.assets/image-20201029230909895.png" alt="image-20201029230909895" style="zoom:50%;" />
+1.  初始化<img src="04-01-inter-analysis-spa.assets/image-20201029230504891.png" style="zoom:50%;" />
+2.  处理main后向WL中加入A.foo()<img src="04-01-inter-analysis-spa.assets/image-20201029230535984.png" style="zoom:50%;" />
+3.  中间省略一些步骤，这里面对C.bar()时，虽然会调用A.foo()，但由于A.foo()之前已经处理过（在集合RM中），之后不会再进行处理<img src="04-01-inter-analysis-spa.assets/image-20201029230622120.png" style="zoom: 50%;" />
+4.  这里C.m()是不可达的死代码<img src="04-01-inter-analysis-spa.assets/image-20201029230909895.png" style="zoom:50%;" />
 
 *注：忽略new A()对构造函数的调用，这不是例子的重点。*
 
@@ -180,9 +180,9 @@ ICFG可以通过CFG加上两种边构造得到。
 
 例如：
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231132412.png" alt="image-20201029231132412" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231132412.png" style="zoom:50%;" />
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231155238.png" alt="image-20201029231155238" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231155238.png" style="zoom:50%;" />
 
 # Interprocedural Data-Flow Analysis
 
@@ -190,7 +190,7 @@ ICFG可以通过CFG加上两种边构造得到。
 
 目前这一分析领域没有标准方法。首先对过程间和过程内的分析做一个对比，并以常量传播为例子进行解释。
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231106891.png" alt="image-20201029231106891" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231106891.png" style="zoom:50%;" />
 
 Edge transfer处理引入的call & return edge。
 
@@ -204,13 +204,13 @@ Edge transfer处理引入的call & return edge。
     -   传递返回值
 -   Node transfer
     -   Same as intra-procedural constant propagation, 
-        plus: for each call node, kill data-flow value for the LHS(Left hand side) variable. Its value will flow to return site along the return edges<img src="04-01-inter-analysis-spa.assets/image-20201029231304304.png" alt="image-20201029231304304" style="zoom:50%;" />
+        plus: for each call node, kill data-flow value for the LHS(Left hand side) variable. Its value will flow to return site along the return edges<img src="04-01-inter-analysis-spa.assets/image-20201029231304304.png" style="zoom:50%;" />
 
 
 
 ## Example
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231706834.png" alt="image-20201029231706834" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231706834.png" style="zoom:50%;" />
 
 
 
@@ -218,29 +218,29 @@ Edge transfer处理引入的call & return edge。
 
 <u>这一段有存在的必要吗？</u>
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231611608.png" alt="image-20201029231611608" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231611608.png" style="zoom:50%;" />
 
 > Such edge (from call site to return site) is named call-to-return edge. It allows the analysis to propagate local data-flow (a=6 in this case) on ICFG.
 
 如果没有这一段，那么a就得“出国”去浪费地球资源——在分析被调用函数的全程中都需要记住a的值，这在程序运行时会浪费大量内存。
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231543567.png" alt="image-20201029231543567" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231543567.png" style="zoom:50%;" />
 
 要记得在调用语句处kill掉表达式左边的值，否则会造成结果的不准确，如：
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231908883.png" alt="image-20201029231908883" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231908883.png" style="zoom:50%;" />
 
 
 
 # 过程间分析有多重要？
 
-我们对比一下应用过程间分析与不应用的情况下分析的精度。上述例子应用过程间分析的完整推导如下：
+讲到这里，我们回到故事的开头，看看过程间分析的引入到底能带来多大的精度提高吧。上述例子应用过程间分析的完整推导如下：
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231952670.png" alt="image-20201029231952670" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231952670.png" style="zoom:50%;" />
 
 而如果只做过程内分析，则**精度大大下降**：
 
-<img src="04-01-inter-analysis-spa.assets/image-20201029231936719.png" alt="image-20201029231936719" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029231936719.png" style="zoom:50%;" />
 
 # Sum up
 

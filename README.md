@@ -10,14 +10,14 @@ Getting started with static program analysis. Read this and start writing your f
 
 ## 我想听到你的声音
 
--   **批评的意见很有价值。**这是我第一次书写教程，一定有很多做得不好的地方。如果你觉得我写得不好，可以选择提issue或者通过邮箱联系我（ranger.nju#gmail.com)。
+-   **批评的意见很有价值。** 这是我第一次书写教程，一定有很多做得不好的地方。如果你觉得我写得不好，可以选择提issue或者通过邮箱联系我（ranger.nju#gmail.com)。
 -   如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
 
 
 ## 更新记录
 
 1.  Oct, 2020. 设立Github Repo
-2.  29th,Oct 2020. 更新第七课《过程间分析》至第四章节
+2.  29th,Oct 2020. 更新第七课《过程间分析》至第四章
 
 # 这一《静态程序分析》教程对谁有用？
 

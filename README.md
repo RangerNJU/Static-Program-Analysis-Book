@@ -14,10 +14,13 @@ Getting started with static program analysis. Read this and start writing your f
 -   如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
 
 
-## 更新记录
+## 更新记录与里程碑事件记录
 
 1.  Oct, 2020. 设立Github Repo
-2.  29th,Oct 2020. 更新第七课《过程间分析》至第四章
+2.  16th, Oct. 第一次得到Star，第一次被Fork
+3.  29th, Oct . 更新第七课《过程间分析》至第四章
+4.  30th, Oct. 处理第一次PR，更新文档结构
+
 
 # 这一《静态程序分析》教程对谁有用？
 

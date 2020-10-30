@@ -2,6 +2,8 @@
 
 本小节通过四个部分介绍过程间分析。
 
+[toc]
+
 1. Motivation
 2. Call Graph Construction (CHA)
 3. Interprocedural Control-Flow Graph
@@ -39,10 +41,11 @@ Java中call可分为三类：
 
 <img src="../.gitbook/assets/Ex4-4.png" style="zoom:50%;" />
 
--   指令：指Java的IR中的指令
--   接收对象：Static方法不需要对应实例。
--   对象方法：对应的call会在列出的情况下被使用
--   方法的对象：Virtual call与动态绑定和多态实现有关，可以对应多个对象，只能在动态时决定调用哪一个具体方法的实现。
+-   Instruction：指Java的IR中的指令。
+-   Receiver objects：方法对应的实例对象（static方法不需要对应实例）。
+-   Target methods：对应的call会在列出的情况下被使用。
+-   Num of target methods：call可能对应的方法数量。Virtual call与动态绑定和多态实现有关，可以对应多个对象下的重写方法。
+-   Determinacy：指什么时候能够确定这个call的对应方法。Virtual call与多态有关，只能在运行时决定调用哪一个具体方法的实现。其他两种call都和多态机制不相关，编译时刻就可以确定。
 
 ### Virtual call and dispatch
 

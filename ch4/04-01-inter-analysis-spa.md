@@ -45,16 +45,15 @@ Call Graph有很多种不同的构造方法，我们接下来会讲解两个极�
 
 <img src="../.gitbook/assets/Ex4-4.png" style="zoom:50%;" />
 
--   指令：指Java的**IR中的指令**
--   接收对象：Static方法不需要依赖实例
--   对象方法：表达**方法到IR指令的映射关系**
--   方法的对象：Virtual call与动态绑定和多态实现有关，可以对应多个对象，只能在动态时决定调用哪一个具体方法的实现。所以**Virtual call的可能对象可能超过1个**。
+-   Instruction：指Java的**IR中的指令**
+-   Receiver objects：方法对应的实例对象（static方法不需要对应实例）。
+-   Target methods：表达**方法到IR指令的映射关系**
+-   Num of target methods：call可能对应的方法数量。Virtual call与动态绑定和多态实现有关，可以对应多个对象下的重写方法。所以**Virtual call的可能对象可能超过1个**。
+-   Determinacy：指什么时候能够确定这个call的对应方法。Virtual call与多态有关，只能在运行时决定调用哪一个具体方法的实现。其他两种call都和多态机制不相关，编译时刻就可以确定。
 
 ### Virtual call and dispatch
 
-接下来重点讨论Virtual call：
-
-在动态运行时，Virtual call基于两点决定调用哪个具体方法：
+接下来重点讨论Virtual call，在动态运行时，Virtual call基于两点决定调用哪个具体方法：
 
 1.  Type of object
 
@@ -129,7 +128,7 @@ A：分别调用A和C中定义的foo方法。
 
 **Virtual call**
 
--   receiver variable在例子中就是a。<img src="04-01-inter-analysis-spa.assets/image-20201029225106724.png" style="zoom:50%;" />
+-   receiver variable在例子中就是c。<img src="04-01-inter-analysis-spa.assets/image-20201029225106724.png" style="zoom:50%;" />
 
 -   对receiver c和c的所有直接间接子类都作为call site调用Dispatch
 
@@ -142,7 +141,7 @@ A：分别调用A和C中定义的foo方法。
 
 ## CHA的应用
 
-常用于IDE中，给用户提供提示。比如写一小段测试代码，看看b.foo()可能会调用哪些函数签名：
+常用于IDE中，给用户提供提示。比如写一小段测试代码，看看b.foo()可能会调用哪些函数签名。可以看出CHA分析中认为`b.foo()`可能调用A、C、D中的`foo()`方法。（实际上这并不准确，因为b实际上是B类对象，不会调用子类C、D中的方法，但胜在快速）
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029225350619.png" style="zoom:50%;" />
 
@@ -209,24 +208,15 @@ ICFG可以通过CFG加上两种边构造得到。
 Edge transfer处理引入的call & return edge。为此，我们需要**在之前章节的CFG基础上增加三种transfer函数。**
 
 -   Call edge transfer
-    -   transfer data flow from call node to the 
-        entry node of callee (along call edges)
-    -   传递参数
+    -   从调用者向被调用者传递参数
 -   Return edge transfer
-    -   transfer data flow from return node of 
-        the callee to the return site (along return edges)
-    -   传递返回值
+    -   被调用者向调用者传递返回值
 -   Node transfer
-    -   Same as intra-procedural constant propagation, 
-        plus: for each call node, kill data-flow value for the LHS(Left hand side) variable. Its value will flow to return site along the return edges<img src="04-01-inter-analysis-spa.assets/image-20201029231304304.png" style="zoom:50%;" />
-
-
+    -   大部分与过程内的常数传播分析一样，不过对于每一个函数调用，都要kill掉LHS（Left hand side）的变量 <img src="04-01-inter-analysis-spa.assets/image-20201029231304304.png" style="zoom:50%;" />
 
 ## Example
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029231706834.png" style="zoom:50%;" />
-
-
 
 ### 小问题
 
@@ -256,13 +246,13 @@ Edge transfer处理引入的call & return edge。为此，我们需要**在之�
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029231936719.png" style="zoom:50%;" />
 
-# Sum up
+# Key points
 
 1.  How to build call graph via class hierarchy analysis
-    1.  如何构建CHA的call graph
+  -  如何构建CHA的call graph
 2.  Concept of interprocedural control-flow graph
-    1.  过程间CFG的概念
+  -  过程间CFG的概念
 3.  Concept of interprocedural data-flow analysis
-    1.  过程间数据流分析的概念
+  -  过程间数据流分析的概念
 4.  Interprocedural constant propagation
-    1.  例子。引入过程间分析的常量分析
+  -  例子——引入过程间分析的常量分析

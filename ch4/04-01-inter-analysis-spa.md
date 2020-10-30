@@ -2,8 +2,6 @@
 
 本小节通过四个部分介绍过程间分析。
 
-[toc]
-
 1. Motivation
 2. Call Graph Construction (CHA)
 3. Interprocedural Control-Flow Graph
@@ -121,7 +119,7 @@ A：分别调用A和C中定义的foo方法。
 
 **Virtual call**
 
--   receiver variable在例子中就是a。<img src="04-01-inter-analysis-spa.assets/image-20201029225106724.png" style="zoom:50%;" />
+-   receiver variable在例子中就是c。<img src="04-01-inter-analysis-spa.assets/image-20201029225106724.png" style="zoom:50%;" />
 
 -   对receiver c和c的所有直接间接子类都作为call site调用Dispatch
 
@@ -134,11 +132,11 @@ A：分别调用A和C中定义的foo方法。
 
 ## CHA的应用
 
-常用于IDE中，给用户提供提示。
+常用于IDE中，给用户提供提示。可以看出CHA分析中认为`b.foo()`可能调用A、C、D中的`foo()`方法。（实际上这并不准确，因为b实际上是B类对象，不会调用子类C、D中的方法，但胜在快速）
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029225350619.png" style="zoom:50%;" />
 
-CHA的实际思路和算法。
+
 
 ## Call Graph Construction
 
@@ -245,7 +243,7 @@ Edge transfer处理引入的call & return edge。
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029231936719.png" style="zoom:50%;" />
 
-# Sum up
+# Sum up（Key points)
 
 1.  How to build call graph via class hierarchy analysis
 2.  Concept of interprocedural control-flow graph

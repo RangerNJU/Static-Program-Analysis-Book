@@ -3,29 +3,35 @@
 本小节通过四个部分介绍过程间分析。
 
 1. Motivation
+    -   **为什么**要引入过程间分析？
 2. Call Graph Construction (CHA)
+    -   介绍一个过程间分析**必要的数据结构Call Graph**
+    -   当前有数种方法来**构建Call Graph**，本节介绍其中**速度最快的一种（Class hierarchy analysis，简称CHA）**
 3. Interprocedural Control-Flow Graph
+    -   之前的章节关注CFG，引入过程间分析后，我们向CFG中**添加相应的元素**，得到过程间的控制流图（ICFG）
+    -   讨论由于添加了新元素而需要**增加的操作**
 4. Interprocedural Data-Flow Analysis
+    -   通过一个例子（也就是实验一中做的常量传播分析）来**总结**过程间分析。
 
 # Motivation
 
-之前的章节中，都不考虑方法调用，然而方法调用在程序中真实存在。
-
-例子：
+之前的章节中都没有考虑方法调用，然而在实际的程序中方法调用非常常见，那么我们如何分析带方法调用的程序呢？最简单的处理方式是：做最保守的假设，即**为函数调用返回NAC**。而这种情况会**丢失精度**。**引入过程间分析能够提高精度。**如果使用最简单的处理方式，下图中的n和y分析结果都不是常量，尽管我们能够一眼看出他们的运行时值是n=10，y=43。
 
 <img src="../.gitbook/assets/Ex4-1.png" style="zoom:50%;" />
 
--   最简单的情况下：做最保守的假设，即为函数调用返回NAC。而这种情况会丢失精度。引入过程间分析能够提高精度。
+
 
 # Call Graph Construction (CHA)
 
-## Call Graph
+接下来我们讨论一个必要的数据结构Call Graph，中文可以理解为调用关系图。
+
+## Definition of Call Graph
 
 >   A representation of calling relationships in the program.
 
-<img src="../.gitbook/assets/Ex4-2.png" style="zoom:50%;" />
+调用关系图表达调用关系（中文讲起来很奇怪！！），一个简单的例子如下：
 
-在现代常用的语言中，大多数情况下会使用OO语言。本课则主要关注Java。
+<img src="../.gitbook/assets/Ex4-2.png" style="zoom:50%;" />
 
 ## Call Graph Construction
 
@@ -35,21 +41,19 @@ Call Graph有很多种不同的构造方法，我们接下来会讲解两个极�
 
 ### Call types in Java
 
-Java中call可分为三类：
+本课主要关注Java的调用关系图构建。为此，我们需要先了Java中调用的类型。Java中call可分为三类（不需要理解透彻，之后会详细介绍）：
 
 <img src="../.gitbook/assets/Ex4-4.png" style="zoom:50%;" />
 
--   Instruction：指Java的IR中的指令。
+-   Instruction：指Java的**IR中的指令**
 -   Receiver objects：方法对应的实例对象（static方法不需要对应实例）。
--   Target methods：对应的call会在列出的情况下被使用。
--   Num of target methods：call可能对应的方法数量。Virtual call与动态绑定和多态实现有关，可以对应多个对象下的重写方法。
+-   Target methods：表达**方法到IR指令的映射关系**
+-   Num of target methods：call可能对应的方法数量。Virtual call与动态绑定和多态实现有关，可以对应多个对象下的重写方法。所以**Virtual call的可能对象可能超过1个**。
 -   Determinacy：指什么时候能够确定这个call的对应方法。Virtual call与多态有关，只能在运行时决定调用哪一个具体方法的实现。其他两种call都和多态机制不相关，编译时刻就可以确定。
 
 ### Virtual call and dispatch
 
-接下来重点讨论Virtual call：
-
-在动态运行时，Virtual call基于两点决定调用哪个具体方法：
+接下来重点讨论Virtual call，在动态运行时，Virtual call基于两点决定调用哪个具体方法：
 
 1.  Type of object
 
@@ -62,7 +66,7 @@ Java中call可分为三类：
 
 
 
-Java中Dispatch（决定具体调用哪个方法）的机制：c是一个类的定义，m是一个方法。如果能在本类中找到name和descriptor一致的方法，则调用c的方法，否则到父类中寻找。
+Java中Dispatch机制决定具体调用哪个方法：c是一个类的定义，m是一个方法。如果能在本类中找到name和descriptor一致的方法，则调用c的方法，否则到父类中寻找。
 
 >   We define function Dispatch(𝑐, 𝑚) to simulate the procedure of run-time method dispatch.
 
@@ -70,7 +74,7 @@ Java中Dispatch（决定具体调用哪个方法）的机制：c是一个类的�
 
 
 
-练习问题
+**练习问题**
 
 Q：两次对foo的调用分别调用了哪个类的foo？
 
@@ -84,16 +88,21 @@ A：分别调用A和C中定义的foo方法。
 
 ## Definition of CHA
 
--   Require the class hierarchy information (inheritance structure) of the whole program
+-   Require the class **hierarchy information (inheritance structure)** of the whole program
+    -   需要首先获得整个程序的继承关系图
 -   Resolve a virtual call based on the declared type of receiver 
     variable of the call site
+    -   通过接收变量的声明类型来解析Virtual call
+    -   接收变量的例子：在`a.foo()`中，a就是接收变量
 -   Assume the receiver variable a may point to objects of class A
-    or all subclasses of A
-    -   Resolve target methods by looking up the class hierarchy of class A
+    or all subclasses of A（Resolve target methods by looking up the class hierarchy of class A）
+    -   假设一个接收变量能够指向A或A的所有子类
 
 ## Call Resolution of CHA
 
 ###  Algorithm of Resolve
+
+下面介绍解析调用的算法。
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029224506176.png" style="zoom:50%;" />
 
@@ -123,7 +132,7 @@ A：分别调用A和C中定义的foo方法。
 
 -   对receiver c和c的所有直接间接子类都作为call site调用Dispatch
 
-一些例子：<img src="04-01-inter-analysis-spa.assets/image-20201029225304889.png" style="zoom:50%;" />
+**一个例子**<img src="04-01-inter-analysis-spa.assets/image-20201029225304889.png" style="zoom:50%;" />
 
 ## CHA的特征
 
@@ -132,20 +141,23 @@ A：分别调用A和C中定义的foo方法。
 
 ## CHA的应用
 
-常用于IDE中，给用户提供提示。可以看出CHA分析中认为`b.foo()`可能调用A、C、D中的`foo()`方法。（实际上这并不准确，因为b实际上是B类对象，不会调用子类C、D中的方法，但胜在快速）
+常用于IDE中，给用户提供提示。比如写一小段测试代码，看看b.foo()可能会调用哪些函数签名。可以看出CHA分析中认为`b.foo()`可能调用A、C、D中的`foo()`方法。（实际上这并不准确，因为b实际上是B类对象，不会调用子类C、D中的方法，但胜在快速）
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029225350619.png" style="zoom:50%;" />
-
-
 
 ## Call Graph Construction
 
 ### Idea
 
 -   Build call graph for whole program via CHA
+    -   通过CHA构造整个程序的call graph
 -   Start from entry methods (focus on main method)
+    -   通常从main函数开始
 -   For each reachable method 𝑚, resolve target methods for each call site 𝑐𝑠 in 𝑚 via CHA (Resolve(𝑐𝑠))
+    -   递归地处理对每个可达的方法
 -   Repeat until no new method is discovered
+    -   当不能拓展新的可达方法时停止
+-   整个过程和计算机领域中求闭包的过程很相似
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029230138054.png" style="zoom:50%;" />
 
@@ -157,9 +169,9 @@ A：分别调用A和C中定义的foo方法。
 -   Call graph是需要构建的目标，是call edges的集合
 -   Reachable method是已经处理过的目标，在Worklist中取新目标时，不需要再次处理已经在RM中的目标
 
-
-
 ### Example
+
+*我也不想当无情的PPT摘抄机器，可是markdown对自己做图的支持太差了啊（x。*
 
 1.  初始化<img src="04-01-inter-analysis-spa.assets/image-20201029230504891.png" style="zoom:50%;" />
 2.  处理main后向WL中加入A.foo()<img src="04-01-inter-analysis-spa.assets/image-20201029230535984.png" style="zoom:50%;" />
@@ -193,27 +205,18 @@ ICFG可以通过CFG加上两种边构造得到。
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029231106891.png" style="zoom:50%;" />
 
-Edge transfer处理引入的call & return edge。
+Edge transfer处理引入的call & return edge。为此，我们需要**在之前章节的CFG基础上增加三种transfer函数。**
 
 -   Call edge transfer
-    -   transfer data flow from call node to the 
-        entry node of callee (along call edges)
-    -   传递参数
+    -   从调用者向被调用者传递参数
 -   Return edge transfer
-    -   transfer data flow from return node of 
-        the callee to the return site (along return edges)
-    -   传递返回值
+    -   被调用者向调用者传递返回值
 -   Node transfer
-    -   Same as intra-procedural constant propagation, 
-        plus: for each call node, kill data-flow value for the LHS(Left hand side) variable. Its value will flow to return site along the return edges<img src="04-01-inter-analysis-spa.assets/image-20201029231304304.png" style="zoom:50%;" />
-
-
+    -   大部分与过程内的常数传播分析一样，不过对于每一个函数调用，都要kill掉LHS（Left hand side）的变量 <img src="04-01-inter-analysis-spa.assets/image-20201029231304304.png" style="zoom:50%;" />
 
 ## Example
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029231706834.png" style="zoom:50%;" />
-
-
 
 ### 小问题
 
@@ -243,9 +246,13 @@ Edge transfer处理引入的call & return edge。
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029231936719.png" style="zoom:50%;" />
 
-# Sum up（Key points)
+# Key points
 
 1.  How to build call graph via class hierarchy analysis
+  -  如何构建CHA的call graph
 2.  Concept of interprocedural control-flow graph
+  -  过程间CFG的概念
 3.  Concept of interprocedural data-flow analysis
+  -  过程间数据流分析的概念
 4.  Interprocedural constant propagation
+  -  例子——引入过程间分析的常量分析

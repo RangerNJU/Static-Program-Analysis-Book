@@ -1,3 +1,5 @@
+**建议使用屏幕较大的设备查看以便纵览全局，在手机上及其他小屏幕设备上查看可能无法查看默认包含的Table of Contents。**
+
 # 过程间分析简介
 
 本小节通过四个部分介绍过程间分析。
@@ -18,8 +20,6 @@
 之前的章节中都没有考虑方法调用，然而在实际的程序中方法调用非常常见，那么我们如何分析带方法调用的程序呢？最简单的处理方式是：做最保守的假设，即**为函数调用返回NAC**。而这种情况会**丢失精度**。**引入过程间分析能够提高精度。**如果使用最简单的处理方式，下图中的n和y分析结果都不是常量，尽管我们能够一眼看出他们的运行时值是n=10，y=43。
 
 <img src="../.gitbook/assets/Ex4-1.png" style="zoom:50%;" />
-
-
 
 # Call Graph Construction (CHA)
 
@@ -53,26 +53,20 @@ Call Graph有很多种不同的构造方法，我们接下来会讲解两个极�
 
 ### Virtual call and dispatch
 
-接下来重点讨论Virtual call，在动态运行时，Virtual call基于两点决定调用哪个具体方法：
+Virtual call是几种调用中最为复杂的一种，我们首先重点讨论它。在动态运行时，Virtual call基于两点决定调用哪个具体方法：
 
 1.  Type of object
-
 2.  Method signature
-
     -   Signature = class type + method name + descriptor
     -   Descriptor = return type + parameter types
 
     <img src="../.gitbook/assets/Ex4-5.png" style="zoom:50%;" />
-
-
 
 Java中Dispatch机制决定具体调用哪个方法：c是一个类的定义，m是一个方法。如果能在本类中找到name和descriptor一致的方法，则调用c的方法，否则到父类中寻找。
 
 >   We define function Dispatch(𝑐, 𝑚) to simulate the procedure of run-time method dispatch.
 
 <img src="../.gitbook/assets/Ex4-6.png"  style="zoom:50%;" />
-
-
 
 **练习问题**
 
@@ -90,12 +84,10 @@ A：分别调用A和C中定义的foo方法。
 
 -   Require the class **hierarchy information (inheritance structure)** of the whole program
     -   需要首先获得整个程序的继承关系图
--   Resolve a virtual call based on the declared type of receiver 
-    variable of the call site
+-   Resolve a virtual call based on the declared type of receiver variable of the call site
     -   通过接收变量的声明类型来解析Virtual call
     -   接收变量的例子：在`a.foo()`中，a就是接收变量
--   Assume the receiver variable a may point to objects of class A
-    or all subclasses of A（Resolve target methods by looking up the class hierarchy of class A）
+-   Assume the receiver variable a may point to objects of class A or all subclasses of A（Resolve target methods by looking up the class hierarchy of class A）
     -   假设一个接收变量能够指向A或A的所有子类
 
 ## Call Resolution of CHA
@@ -157,7 +149,7 @@ A：分别调用A和C中定义的foo方法。
     -   递归地处理对每个可达的方法
 -   Repeat until no new method is discovered
     -   当不能拓展新的可达方法时停止
--   整个过程和计算机领域中求闭包的过程很相似
+-   整个过程和计算理论中求闭包的过程很相似
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029230138054.png" style="zoom:50%;" />
 
@@ -180,7 +172,7 @@ A：分别调用A和C中定义的foo方法。
 
 *注：忽略new A()对构造函数的调用，这不是例子的重点。*
 
-**这个例子是对本小节的总结，如果不能读懂并独立推导建议重读一遍。**
+**这个例子是对本小节的总结，如果不能读懂并独立推导建议重读一遍。如果你理解了第一到第六课的内容但是觉得上面的内容写得不清晰，可以到本书简介中提到的QQ群交流吐槽。**
 
 ## Interprocedural Control-Flow Graph
 
@@ -201,7 +193,7 @@ ICFG可以通过CFG加上两种边构造得到。
 
 ## 定义与比较
 
-目前这一分析领域没有标准方法。首先对过程间和过程内的分析做一个对比，并以常量传播为例子进行解释。
+目前这一分析领域没有标准方法。首先对过程间和过程内的分析做一个对比，并以常量传播（本校同学第一次实验作业主题，需要一到六课的基础）为例子进行解释。
 
 <img src="04-01-inter-analysis-spa.assets/image-20201029231106891.png" style="zoom:50%;" />
 
@@ -248,10 +240,12 @@ Edge transfer处理引入的call & return edge。为此，我们需要**在之�
 
 # Key points
 
+**The X You Need To Understand in This Lecture**
+
 1.  How to build call graph via class hierarchy analysis
-  -  如何构建CHA的call graph
+  -  如何利用CHA构建调用关系图(call graph)
 2.  Concept of interprocedural control-flow graph
-  -  过程间CFG的概念
+  -  过程间控制流图(CFG)的概念
 3.  Concept of interprocedural data-flow analysis
   -  过程间数据流分析的概念
 4.  Interprocedural constant propagation

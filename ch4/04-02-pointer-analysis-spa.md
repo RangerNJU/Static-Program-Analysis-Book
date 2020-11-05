@@ -1,7 +1,5 @@
 # 指针分析一
 
->   ​	
-
 **这一部分很难，将会有五节课讲授相关内容。**
 
 1. Motivation
@@ -13,7 +11,7 @@
 
 回想一下CHA的构造过程。在这个程序中对`get（）`的调用，在CHA分析下，应该调用几个方法？
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105183618529.png" alt="image-20201105183618529" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105183618529.png" style="zoom:50%;" />
 
 比较两种分析可以看出来CHA虽然快，但是很不准。
 
@@ -26,7 +24,7 @@
 
 举个例子（省略中间过程）：
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105184327763.png" alt="image-20201105184327763" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105184327763.png" style="zoom:50%;" />
 
 ## 区分指针分析与别名分析
 
@@ -53,7 +51,7 @@ y = new Y();
 
 >   业界大佬们说它很重要。
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105184919660.png" alt="image-20201105184919660" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105184919660.png" style="zoom:50%;" />
 
 # Key Factors of Pointer Analysis
 
@@ -62,7 +60,7 @@ y = new Y();
 -   Pointer analysis is a complex system
 -   Multiple factors affect the precision and efficiency of the system
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105185230667.png" alt="image-20201105185230667" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105185230667.png" style="zoom:50%;" />
 
 ## Heap Abstraction
 
@@ -76,17 +74,17 @@ for (…) {
 
 解决方法也很简单，学校里同学太多了就分成班级来管理，我们也可以对堆上的对象进行抽象：
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105185431196.png" alt="image-20201105185431196" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105185431196.png" style="zoom:50%;" />
 
 相关的技术有很多，这里只讲一个最常用的分支Allocation-Site Abstraction。而Storeless的方法本课程不涉及。
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105185630758.png" alt="image-20201105185630758" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105185630758.png" style="zoom:50%;" />
 
 ### Allocation-Site Abstraction
 
 虽然动态时对象的个数可能是无限的，但是new语句的个数一定是有限的。我们可以按照new语句来进行抽象。
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105185806532.png" alt="image-20201105185806532" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105185806532.png" style="zoom:50%;" />
 
 ## Context Sensitivity
 
@@ -94,11 +92,11 @@ for (…) {
 
 如果将上下文做区分（进行额外的标记，如记录下图中p指向的目标），对参数不同时的调用做不同的分析，则称为**上下文敏感分析**。
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105190333596.png" alt="image-20201105190333596" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105190333596.png" style="zoom:50%;" />
 
 反之，如果不区分上下文，则称为**上下文不敏感分析**。由于忽略了一部分信息，可能会损失分析的精度。
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105190439805.png" alt="image-20201105190439805" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105190439805.png" style="zoom:50%;" />
 
 我们首先学习不敏感的分析方法，在之后的课程中介绍上下文敏感分析。
 
@@ -117,11 +115,11 @@ c.f = "y";
 
 对于流敏感的分析，会得到如下的mapping。`o1`代表在第一行动态分配的对象。
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105191248594.png" alt="image-20201105191248594" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105191248594.png" style="zoom:50%;" />
 
 如果使用流不敏感的分析，会得到如下的mapping。
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105191705757.png" alt="image-20201105191705757" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105191705757.png" style="zoom:50%;" />
 
 ## Analysis Scope
 
@@ -150,7 +148,7 @@ Java中的Pointers有以下几类：
 
     -   涉及数组的分析中，我们**忽略下标**，代之以一个域（a single field）。例如，在下图中我们用arr表示。
 
-        <img src="04-02-pointer-analysis-spa.assets/image-20201105194030384.png" alt="image-20201105194030384" style="zoom:50%;" />
+        <img src="04-02-pointer-analysis-spa.assets/image-20201105194030384.png" style="zoom:50%;" />
 
     -   原因之一：数组下标是变量时难以计算具体值
     
@@ -179,5 +177,5 @@ r = x.k(a, …)
 
 复杂的Store和Load指令可以解构成简单的：
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201105194707507.png" alt="image-20201105194707507" style="zoom:50%;" />
+<img src="04-02-pointer-analysis-spa.assets/image-20201105194707507.png" style="zoom:50%;" />
 

@@ -27,7 +27,7 @@
 
 对于Assign语句，我们将x指向y指向的对象。
 
-<img src="04-03-pointer2-analysis-spa.assets/image-20201105195843958.png" style="zoom:50%;" />
+<img src="04-03-pointer2-analysis-spa.assets/image-20201105235312349.png" style="zoom:50%;" />
 
 对于Store和Load亦然。
 

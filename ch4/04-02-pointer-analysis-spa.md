@@ -9,11 +9,25 @@
 
 # Motivation
 
-回想一下CHA的构造过程。在这个程序中对`get（）`的调用，在CHA分析下，应该调用几个方法？
+接下来我们对比基于CHA的分析方法和指针分析的分析方法。首先，回想一下CHA的构造过程。在这个程序中对`get（）`的调用，在CHA分析下，应该调用哪几个方法？
 
 <img src="04-02-pointer-analysis-spa.assets/image-20201105183618529.png" style="zoom:50%;" />
 
-比较两种分析可以看出来CHA虽然快，但是很不准。
+## 使用CHA分析
+
+<img src="04-02-pointer-analysis-spa.assets/image-20201109140057119.png" style="zoom:50%;" />
+
+可以看出，由于只关心类的层次结构，分析结果的三个箭头中有两个是false positive。也因此导致了分析结果的不精确。
+
+![image-20201109140605829](04-02-pointer-analysis-spa.assets/image-20201109140605829.png)
+
+## 使用指针分析
+
+利用指针分析，我们能知道n指向的对象就是new One()语句所新建出来的对象。所以能精确地知道x一定会取1。
+
+<img src="04-02-pointer-analysis-spa.assets/image-20201109154728420.png" style="zoom:50%;" />![image-20201109154844509](04-02-pointer-analysis-spa.assets/image-20201109154844509.png)
+
+**比较两种分析，可以看出CHA速度快而精度低，接下来我们学习高精度的指针分析。**
 
 # Introduction to Pointer Analysis
 
@@ -22,7 +36,7 @@
 -   Regarded as a may-analysis
     -   Computes an over-approximation of the set of objects that a pointer can point to, i.e., we ask “a pointer may point to which objects?”
 
-举个例子（省略中间过程）：
+什么是指针分析呢？举个例子（省略中间过程）：
 
 <img src="04-02-pointer-analysis-spa.assets/image-20201105184327763.png" style="zoom:50%;" />
 
@@ -55,7 +69,7 @@ y = new Y();
 
 # Key Factors of Pointer Analysis
 
-<u>此处有战术喝水。（现场梗，要是读不通顺可以考虑删了）</u>
+<u>此处有战术喝水。（现场梗）</u>
 
 -   Pointer analysis is a complex system
 -   Multiple factors affect the precision and efficiency of the system
@@ -127,7 +141,7 @@ c.f = "y";
 
 # Concerned Statements
 
-在指针分析中，我们只关注与会影响到指针的语句（ pointer-affecting statements）。而对于if/switch/loop/break/continue等等语句则可以直接忽略。
+在指针分析中，我们只关注会影响到指针的语句（pointer-affecting statements）。而对于if/switch/loop/break/continue等等语句则可以直接忽略。
 
 ## 关注的指针类型
 
@@ -138,7 +152,7 @@ Java中的Pointers有以下几类：
 -   Static field: C.f
 
     -   Sometimes referred as global variable
-    -   在之后介绍的算法中，可以作为Local variable处理
+    -   在之后介绍的算法中，**可作为Local variable处理**
 
 -   **Instance field: x.f**
 
@@ -147,15 +161,13 @@ Java中的Pointers有以下几类：
 -   Array element: array[i]
 
     -   涉及数组的分析中，我们**忽略下标**，代之以一个域（a single field）。例如，在下图中我们用arr表示。
+-   原因之一：数组下标是变量时难以计算具体值
+    -   在之后介绍的算法中，**可作为Instance field处理**<img src="04-02-pointer-analysis-spa.assets/image-20201105194030384.png" style="zoom:50%;" />
 
-    -   原因之一：数组下标是变量时难以计算具体值
--   在之后介绍的算法中，可以作为Instance field处理
-    
-    <img src="04-02-pointer-analysis-spa.assets/image-20201105194030384.png" style="zoom:50%;" />
 
 ## 关注的语句类型
 
-具体来说，我们关注五种类型的语句：
+具体来说，我们关注五种基本类型的语句：
 
 ```cpp
 // New
@@ -174,7 +186,7 @@ y = x.f
 r = x.k(a, …)
 ```
 
-复杂的Store和Load指令可以解构成简单的：
+复杂的Store和Load指令可以解构成简单的，所以我们可以只考虑对上述五种基本类型语句的分析：
 
 <img src="04-02-pointer-analysis-spa.assets/image-20201105194707507.png" style="zoom:50%;" />
 

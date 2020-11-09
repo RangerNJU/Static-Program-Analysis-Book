@@ -19,13 +19,15 @@
 
 可以看出，由于只关心类的层次结构，分析结果的三个箭头中有两个是false positive。也因此导致了分析结果的不精确。
 
-![image-20201109140605829](04-02-pointer-analysis-spa.assets/image-20201109140605829.png)
+<img src="04-02-pointer-analysis-spa.assets/image-20201109140605829.png" style="zoom:50%;" />
 
 ## 使用指针分析
 
 利用指针分析，我们能知道n指向的对象就是new One()语句所新建出来的对象。所以能精确地知道x一定会取1。
 
-<img src="04-02-pointer-analysis-spa.assets/image-20201109154728420.png" style="zoom:50%;" />![image-20201109154844509](04-02-pointer-analysis-spa.assets/image-20201109154844509.png)
+<img src="04-02-pointer-analysis-spa.assets/image-20201109154728420.png" style="zoom:50%;" />
+
+<img src="04-02-pointer-analysis-spa.assets/image-20201109154844509.png" style="zoom:50%;" />
 
 **比较两种分析，可以看出CHA速度快而精度低，接下来我们学习高精度的指针分析。**
 

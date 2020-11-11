@@ -134,13 +134,7 @@ Getting started with static program analysis. Read this and start writing your f
 
 # 本地化/Localization
 
-## English
-
-If you wanna translate this project into English, I can proofread for you. All you need to do is `fork, translate, PR` .
-
-## 日本語
-
-このプロジェクトを日本語に翻訳したい場合は、翻訳されたコンテンツの校正をお手伝いします.  `fork, translate, PR` で始めましょう！
+We'd love help translating this book! Open a new issue to start working on a new language. Feel free to start :)
 
 # 其他相关项目
 

@@ -1,12 +1,21 @@
 # 简介
 
-[《静态程序分析》Gitbook在线阅读地址](https://ranger-nju.gitbook.io/static-program-analysis-book/)
+Getting started with static program analysis. Read this and start writing your first static program analyzer! We focus on the problem:
 
-[《静态程序分析》GitHub项目地址](https://github.com/RangerNJU/Static-Program-Analysis-Book)
+>   How to automatically and efficiently guarantee software quality?
 
-Getting started with static program analysis. Read this and start writing your first static program analyzer!
+静态程序分析入门。阅读此书并着手编写你的第一个静态程序分析器吧！本仓库关注一个非常重要的问题：
 
-静态程序分析入门。阅读此书并着手编写你的第一个静态程序分析器吧！
+>   如何自动化地高效保障软件质量？
+
+---
+
+-   [《静态程序分析》Gitbook在线阅读地址](https://ranger-nju.gitbook.io/static-program-analysis-book/)
+-   [《静态程序分析》GitHub项目地址](https://github.com/RangerNJU/Static-Program-Analysis-Book)
+-   离线阅读方式
+    1.  将本仓库**下载**到本地（安装Git后，在命令行中执行命令`git clone https://github.com/RangerNJU/Static-Program-Analysis-Book.git`）
+    2.  周期性地**更新**，在仓库目录下执行`git pull`
+    3.  使用[Typora](https://typora.io/)等本地Markdown阅读器**阅读**
 
 ## 表达你的声音
 
@@ -86,7 +95,7 @@ Getting started with static program analysis. Read this and start writing your f
 
 <img src=".gitbook/assets/market.png" style="zoom: 33%;" />
 
--   在学术界，静态程序分析技术<u>几乎可以应用于所有关于程序的研究方向。</u>
+-   在学术界，静态程序分析技术几乎可以应用于所有关于程序的研究方向。
 -   在工业界，国外的Google，IBM等大企业已经初步建立了自己的静态程序分析团队。国内的华为和阿里等企业也正在积极寻找静态程序分析方面的人才。
 -   **无论你将来想在学术界还是工业界深入发展，学习这一领域的知识都能为你建立独特的优势。**
 

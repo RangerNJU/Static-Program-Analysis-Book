@@ -1,6 +1,6 @@
-# 指针分析一
+# 指针分析简介
 
-**这一部分很难，将会有五节课讲授相关内容。**
+**指针这一部分很难，将会有五节课讲授相关内容。**
 
 1. Motivation
 2. Introduction to Pointer Analysis

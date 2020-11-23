@@ -1,4 +1,4 @@
-# 指针分析二
+# 指针分析理论基础
 
 1. Pointer Analysis: Rules
 2. How to Implement Pointer Analysis

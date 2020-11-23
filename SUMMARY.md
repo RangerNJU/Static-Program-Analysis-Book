@@ -10,6 +10,6 @@
 * [第三章-数据流分析——理论](ch3/README.md)
 * [第四章-过程间分析](ch4/README.md)
   * [过程间分析简介](ch4/04-01-inter-analysis-spa.md)
-  * [指针分析介绍](ch4/04-02-pointer-analysis-spa.md)
+  * [指针分析简介](ch4/04-02-pointer-analysis-spa.md)
   * [指针分析理论基础](ch4/04-03-pointer2-analysis-spa.md)
 

@@ -1,7 +1,7 @@
 # Table of contents
 
 * [简介](README.md)
-* [第零章-写在前面](ch0/README.md)
+* [第零章-写在前面](ch0.md)
   * [为什么是这本书？](ch0/00-01-why-this-book.md)
   * [来源与版权信息](ch0/00-02-sources-and-license.md)
   * [有关行文风格的说明（可讨论）](ch0/00-03-style.md)

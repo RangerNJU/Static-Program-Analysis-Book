@@ -5,9 +5,9 @@
 本小节通过四个部分介绍过程间分析。
 
 1. Motivation
-    -   **为什么**要引入过程间分析？
+    -   **为什么** 要引入过程间分析？
 2. Call Graph Construction (CHA)
-    -   介绍一个过程间分析**必要的数据结构Call Graph**
+    -   介绍一个过程间分析 **必要的数据结构Call Graph**
     -   当前有数种方法来**构建Call Graph**，本节介绍其中**速度最快的一种（Class hierarchy analysis，简称CHA）**
 3. Interprocedural Control-Flow Graph
     -   之前的章节关注CFG，引入过程间分析后，我们向CFG中**添加相应的元素**，得到过程间的控制流图（ICFG）
@@ -60,7 +60,7 @@ Virtual call是几种调用中最为复杂的一种，我们首先重点讨论�
     -   Signature = class type + method name + descriptor
     -   Descriptor = return type + parameter types
 
-    <img src="../.gitbook/assets/Ex4-5.png" style="zoom:50%;" />
+<img src="../.gitbook/assets/Ex4-5.png" style="zoom:50%;" />
 
 Java中Dispatch机制决定具体调用哪个方法：c是一个类的定义，m是一个方法。如果能在本类中找到name和descriptor一致的方法，则调用c的方法，否则到父类中寻找。
 
@@ -107,24 +107,32 @@ A：分别调用A和C中定义的foo方法。
 
 **Static call**
 
--   对于不了解OOP中静态方法的同学可以参考[这里](https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/)。具体来说，静态方法前写的是类名，而非静态方法前写的是变量或指针名。静态方法不需要依赖实例。 <img src="04-01-inter-analysis-spa.assets/image-20201029224736803.png" style="zoom:50%;" />
+-   对于不了解OOP中静态方法的同学可以参考[这里](https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/)。具体来说，静态方法前写的是类名，而非静态方法前写的是变量或指针名。静态方法不需要依赖实例。 
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029224736803.png" style="zoom:50%;" />
 
 **Special call**
 
--   Superclass instance method（super关键字）最为复杂，故优先考虑这种情况<img src="04-01-inter-analysis-spa.assets/image-20201029224820647.png" style="zoom:50%;" />
+-   Superclass instance method（super关键字）最为复杂，故优先考虑这种情况
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029224820647.png" style="zoom:50%;" />
 
     -   为什么需要Dispatch函数？考虑这种情况：
 
-        <img src="04-01-inter-analysis-spa.assets/image-20201029224941882.png" style="zoom:50%;" />
+<img src="04-01-inter-analysis-spa.assets/image-20201029224941882.png" style="zoom:50%;" />
 -   而Private instance method和Constructor（一定由类实现或有默认的构造函数）都会在本类的实现中给出，使用Dispatch函数能够将这三种情况都包含，简化代码。
 
 **Virtual call**
 
--   receiver variable在例子中就是c。<img src="04-01-inter-analysis-spa.assets/image-20201029225106724.png" style="zoom:50%;" />
+-   receiver variable在例子中就是c。
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029225106724.png" style="zoom:50%;" />
 
 -   对receiver c和c的所有直接间接子类都作为call site调用Dispatch
 
-**一个例子**<img src="04-01-inter-analysis-spa.assets/image-20201029225304889.png" style="zoom:50%;" />
+**一个例子** 
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029225304889.png" style="zoom:50%;" />
 
 ## CHA的特征
 
@@ -165,10 +173,21 @@ A：分别调用A和C中定义的foo方法。
 
 *我也不想当无情的PPT摘抄机器，可是markdown对自己做图的支持太差了啊（x。*
 
-1.  初始化<img src="04-01-inter-analysis-spa.assets/image-20201029230504891.png" style="zoom:50%;" />
-2.  处理main后向WL中加入A.foo()<img src="04-01-inter-analysis-spa.assets/image-20201029230535984.png" style="zoom:50%;" />
-3.  中间省略一些步骤，这里面对C.bar()时，虽然会调用A.foo()，但由于A.foo()之前已经处理过（在集合RM中），之后不会再进行处理<img src="04-01-inter-analysis-spa.assets/image-20201029230622120.png" style="zoom: 50%;" />
-4.  这里C.m()是不可达的死代码<img src="04-01-inter-analysis-spa.assets/image-20201029230909895.png" style="zoom:50%;" />
+1.  初始化
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029230504891.png" style="zoom:50%;" />
+
+2.  处理main后向WL中加入A.foo()
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029230535984.png" style="zoom:50%;" />
+
+3.  中间省略一些步骤，这里面对C.bar()时，虽然会调用A.foo()，但由于A.foo()之前已经处理过（在集合RM中），之后不会再进行处理
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029230622120.png" style="zoom: 50%;" />
+
+4.  这里C.m()是不可达的死代码
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029230909895.png" style="zoom:50%;" />
 
 *注：忽略new A()对构造函数的调用，这不是例子的重点。*
 
@@ -204,7 +223,9 @@ Edge transfer处理引入的call & return edge。为此，我们需要**在之�
 -   Return edge transfer
     -   被调用者向调用者传递返回值
 -   Node transfer
-    -   大部分与过程内的常数传播分析一样，不过对于每一个函数调用，都要kill掉LHS（Left hand side）的变量 <img src="04-01-inter-analysis-spa.assets/image-20201029231304304.png" style="zoom:50%;" />
+    -   大部分与过程内的常数传播分析一样，不过对于每一个函数调用，都要kill掉LHS（Left hand side）的变量 
+
+<img src="04-01-inter-analysis-spa.assets/image-20201029231304304.png" style="zoom:50%;" />
 
 ## Example
 

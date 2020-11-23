@@ -32,6 +32,7 @@ Getting started with static program analysis. Read this and start writing your f
 3.  29th, Oct. 更新第七课《Interprocedural Analysis》
 4.  30th, Oct. 第一次PR
 5.  5th, Dec. 将一至六课的文稿暂时移出仓库，更新第八课《Pointer Analysis》
+6.  23th, Dec. 修复图片大小不一致问题。更新第九课《Pointer Analysis Foundations》的一部分。
 
 
 # 这一《静态程序分析》教程对谁有用？
@@ -122,7 +123,7 @@ Getting started with static program analysis. Read this and start writing your f
     1. **无法保证没有bug。** 这是无法遍历所有可能的程序输入的必然结果。
     2. 在当今的由多核与网络应用带来的**并发环境下作用有限。** 某个bug可能只在特定情况下发生，因而难以稳定地复现。如果你对并发程序的动态测试细节感兴趣，可以参考[《拧龙头法测试并发程序》](https://zhuanlan.zhihu.com/p/51341151)。（截图来自南京大学《形式化语义》课程资料）
     
-    <img src=".gitbook/assets/concurrentProgram.png" style="zoom: 67%;" />
+<img src=".gitbook/assets/concurrentProgram.png" style="zoom: 67%;" />
 
 ### 形式化语义验证
 
@@ -133,7 +134,7 @@ Getting started with static program analysis. Read this and start writing your f
     1.  学术门槛较高，学习者必须有良好的数学基础才能入门。
     2.  验证代价较高，一般来说非常重要的项目会使用这一方式保证程序质量。甚至在操作系统这样重要的软件中，也并不一定会使用。(截图来自鸿蒙OS直播发布会)
 
-        <img src=".gitbook/assets/harmonyOS.png" style="zoom: 67%;" />
+<img src=".gitbook/assets/harmonyOS.png" style="zoom: 67%;" />
 
 # 加入项目/How to contribute
 

@@ -119,7 +119,7 @@ A：分别调用A和C中定义的foo方法。
 
 ![](../.gitbook/assets/image-20201029224820647.png)
 
-* 为什么需要Dispatch函数？考虑这种情况：
+* 为什么处理super调用需要使用Dispatch函数：在下图所示情况中没有Dispatch函数时无法正确解析C类的super.foo调用：
 
 ![](../.gitbook/assets/image-20201029224941882.png)
 
@@ -134,6 +134,8 @@ A：分别调用A和C中定义的foo方法。
 * 对receiver c和c的所有直接间接子类都作为call site调用Dispatch
 
 **一个例子**
+
+三个调用都是Virtual call。是上述算法中的第三种情况。
 
 ![](../.gitbook/assets/image-20201029225304889.png)
 

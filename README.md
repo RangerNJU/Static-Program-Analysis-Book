@@ -31,8 +31,8 @@ Getting started with static program analysis. Read this and start writing your f
 2. 16th, Oct. 第一次Star和Fork
 3. 29th, Oct. 更新第七课《Interprocedural Analysis》
 4. 30th, Oct. 第一次PR
-5. 5th, Dec. 将一至六课的文稿暂时移出仓库，更新第八课《Pointer Analysis》
-6. 23th, Dec. 修复图片大小不一致问题。更新第九课《Pointer Analysis Foundations》的一部分。
+5. 5th, Nov. 将一至六课的文稿暂时移出仓库，更新第八课《Pointer Analysis》
+6. 23th, Nov. 修复图片大小不一致问题。更新第九课《Pointer Analysis Foundations》的一部分。
 
 ## 这一《静态程序分析》教程对谁有用？
 

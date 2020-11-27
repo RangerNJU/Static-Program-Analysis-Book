@@ -4,7 +4,7 @@
 
 本入门教程主要内容基于南京大学《软件分析》课程。
 
-[PASCAL研究组主页](https://pascal-group.bitbucket.io/teaching.html)
+[PASCAL研究组主页上的公开课件](https://pascal-group.bitbucket.io/teaching.html)
 
 ## 版权信息
 

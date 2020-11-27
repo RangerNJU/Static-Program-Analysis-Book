@@ -20,6 +20,9 @@ Getting started with static program analysis. Read this and start writing your f
 ### 表达你的声音
 
 * **批评的意见很有价值。** 这是我第一次书写教程，一定有很多做得不好的地方。如果你觉得有值得修改或值得讨论的地方（包括但不仅限于行文风格，内容准确性，图例与解释的易读性等等），可以选择：
+
+~~根据不完全统计，已经有数千次首页访问，每天都会有数十位世界各地的新读者到访，不过收到的意见和建议寥寥。~~
+
   1. 加入QQ群（951182704）匿名或实名表达你的意见与看法
   2. 提issue
   3. 通过邮箱联系我（ranger.nju\#gmail.com\)
@@ -27,12 +30,8 @@ Getting started with static program analysis. Read this and start writing your f
 
 ### 更新记录与里程碑事件
 
-1. Oct, 2020. 设立Repo
-2. 16th, Oct. 第一次Star和Fork
-3. 29th, Oct. 更新第七课《Interprocedural Analysis》
-4. 30th, Oct. 第一次PR
-5. 5th, Nov. 将一至六课的文稿暂时移出仓库，更新第八课《Pointer Analysis》
-6. 23th, Nov. 修复图片大小不一致问题。更新第九课《Pointer Analysis Foundations》的一部分。
+1.  Oct, 2020. 设立Repo，并在第一个月就获得了Star、Fork和PR。
+2.  Nov. 将IR与Data Flow Analysis的相关内容暂时移出仓库，更新七至十课——Interprocedural Analysis、Pointer Analysis-Introduction and Foundations。
 
 ## 这一《静态程序分析》教程对谁有用？
 
@@ -142,7 +141,16 @@ We'd love help translating this book! Open a new issue to start working on a new
 
 ## 其他相关项目
 
+### 软件质量保障相关
+
 [《软件测试简介》Gitbook在线阅读地址](https://ranger-nju.gitbook.io/software-testing-intro)
 
 [《软件测试简介》GitHub项目地址](https://github.com/RangerNJU/Software-Testing-Intro)
+
+### 前辈们写过的优秀笔记
+
+[适合预习和同步阅读，CSDN+简书](https://blog.csdn.net/panhewu9919/article/details/106007155)
+
+[适合复习，个人博客笔记](https://fancypei.github.io/SA/)
+
 

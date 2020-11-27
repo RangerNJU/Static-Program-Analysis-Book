@@ -4,11 +4,11 @@
 
 Getting started with static program analysis. Read this and start writing your first static program analyzer! We focus on the problem:
 
-> How to automatically and efficiently guarantee software quality?
+> ❓ How to automatically and efficiently guarantee software quality
 
-静态程序分析入门。阅读此书并着手编写你的第一个静态程序分析器吧！本仓库关注一个非常重要的问题：
+静态程序分析入门。阅读此书并着手编写你的第一个静态程序分析器吧！本仓库关注一个非常重要的问题： 
 
-> 如何自动化地高效保障软件质量？
+> ❓ 如何自动化地高效保障软件质量
 
 * [《静态程序分析》Gitbook在线阅读地址](https://ranger-nju.gitbook.io/static-program-analysis-book/)
 * [《静态程序分析》GitHub项目地址](https://github.com/RangerNJU/Static-Program-Analysis-Book)
@@ -17,20 +17,20 @@ Getting started with static program analysis. Read this and start writing your f
   2. 周期性地**更新**，在仓库目录下执行`git pull`
   3. 使用[Typora](https://typora.io/)等本地Markdown阅读器**阅读**
 
-### 表达你的声音
+### 表达你的声音 👂 
 
 * **批评的意见很有价值。** 这是我第一次书写教程，一定有很多做得不好的地方。如果你觉得有值得修改或值得讨论的地方（包括但不仅限于行文风格，内容准确性，图例与解释的易读性等等），可以选择：
-
-~~根据不完全统计，已经有数千次首页访问，每天都会有数十位世界各地的新读者到访，不过收到的意见和建议寥寥。~~
 
 1. 加入QQ群（951182704）匿名或实名表达你的意见与看法
 2. 提issue
 3. 通过邮箱联系我（ranger.nju\#gmail.com\)
    * 如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
 
+~~~~👋 ~~根据不完全统计，已经有数千次首页访问，每天都会有数十位世界各地的新读者到访，不过收到的意见和建议寥寥。~~
+
 ### 更新记录与里程碑事件
 
-1. Oct, 2020. 设立Repo，并在第一个月就获得了Star、Fork和PR。
+1. Oct, 2020. 设立Repo，一个月内获得Star、Fork和PR 🥳 
 2. Nov. 将IR与Data Flow Analysis的相关内容暂时移出仓库，更新七至十课——Interprocedural Analysis、Pointer Analysis-Introduction and Foundations。
 
 ## 这一《静态程序分析》教程对谁有用？
@@ -59,7 +59,7 @@ Getting started with static program analysis. Read this and start writing your f
 
 #### 编程语言的分类
 
-当今的计算机世界，面对这样一条恶龙：
+当今的计算机世界，面对这样一条恶龙： 👇 
 
 > 数十年来语言的核心没有变化，但软件的规模和复杂性增长迅速，如何保证程序的可靠性？
 

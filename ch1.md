@@ -13,7 +13,7 @@
 
 尝试内嵌视频：
 
-{% bilibili %} av93643665 {% endbilibili %}
+<iframe src="//player.bilibili.com/player.html?aid=93643665&bvid=BV1zE411s77Z&cid=159861261&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 从[这里](https://ranger-nju.gitbook.io/static-program-analysis-book/ch4)直接跳转到施工完毕区域（第四章）。
 

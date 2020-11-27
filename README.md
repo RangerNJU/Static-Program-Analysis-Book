@@ -23,15 +23,15 @@ Getting started with static program analysis. Read this and start writing your f
 
 ~~根据不完全统计，已经有数千次首页访问，每天都会有数十位世界各地的新读者到访，不过收到的意见和建议寥寥。~~
 
-  1. 加入QQ群（951182704）匿名或实名表达你的意见与看法
-  2. 提issue
-  3. 通过邮箱联系我（ranger.nju\#gmail.com\)
-* 如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
+1. 加入QQ群（951182704）匿名或实名表达你的意见与看法
+2. 提issue
+3. 通过邮箱联系我（ranger.nju\#gmail.com\)
+   * 如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
 
 ### 更新记录与里程碑事件
 
-1.  Oct, 2020. 设立Repo，并在第一个月就获得了Star、Fork和PR。
-2.  Nov. 将IR与Data Flow Analysis的相关内容暂时移出仓库，更新七至十课——Interprocedural Analysis、Pointer Analysis-Introduction and Foundations。
+1. Oct, 2020. 设立Repo，并在第一个月就获得了Star、Fork和PR。
+2. Nov. 将IR与Data Flow Analysis的相关内容暂时移出仓库，更新七至十课——Interprocedural Analysis、Pointer Analysis-Introduction and Foundations。
 
 ## 这一《静态程序分析》教程对谁有用？
 
@@ -127,7 +127,7 @@ Getting started with static program analysis. Read this and start writing your f
   1. 学术门槛较高，学习者必须有良好的数学基础才能入门。
   2. 验证代价较高，一般来说非常重要的项目会使用这一方式保证程序质量。甚至在操作系统这样重要的软件中，也并不一定会使用。\(截图来自鸿蒙OS直播发布会\)
 
-![](.gitbook/assets/harmonyOS.png)
+![](.gitbook/assets/harmonyOS%20%281%29.png)
 
 ## 加入项目/How to contribute
 
@@ -152,5 +152,4 @@ We'd love help translating this book! Open a new issue to start working on a new
 [适合预习和同步阅读，CSDN+简书](https://blog.csdn.net/panhewu9919/article/details/106007155)
 
 [适合复习，个人博客笔记](https://fancypei.github.io/SA/)
-
 

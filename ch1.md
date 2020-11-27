@@ -11,5 +11,9 @@
 
 * [第二课-IR](https://www.bilibili.com/video/BV1zE411s77Z)
 
+尝试内嵌视频：
+
+{% bilibili %} av93643665 {% endbilibili %}
+
 从[这里](https://ranger-nju.gitbook.io/static-program-analysis-book/ch4)直接跳转到施工完毕区域（第四章）。
 

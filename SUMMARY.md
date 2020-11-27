@@ -8,5 +8,6 @@
 * [过程间分析](ch2/README.md)
   * [过程间分析简介](ch2/02-01-inter-analysis-spa.md)
   * [指针分析简介](ch2/02-02-pointer-analysis-spa.md)
-  * [指针分析理论基础](ch2/02-03-pointer2-analysis-spa.md)
+  * [指针分析理论一](ch2/02-03-pointer2-analysis-spa.md)
+  * [指针分析理论二](ch2/02-04-pointer3-analysis-spa.md)
 

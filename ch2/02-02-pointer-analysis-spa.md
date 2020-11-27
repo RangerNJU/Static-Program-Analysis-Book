@@ -189,3 +189,10 @@ r = x.k(a, …)
 
 ![](../.gitbook/assets/image-20201105194707507.png)
 
+## Key points
+
+**The X You Need To Understand in This Lecture**
+
+-  **What is pointer analysis?**
+-  Understand **the key factors** of pointer analysis
+-  Understand **what we analyze** in pointer analysis

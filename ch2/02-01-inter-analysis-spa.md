@@ -29,7 +29,7 @@
 
 > A representation of calling relationships in the program.
 
-调用关系图表达调用关系（中文讲起来很奇怪！！），一个简单的例子如下：
+调用关系图表达调用关系（中文讲起来确实很奇怪），一个简单的例子如下：
 
 ![](../.gitbook/assets/Ex4-2.png)
 

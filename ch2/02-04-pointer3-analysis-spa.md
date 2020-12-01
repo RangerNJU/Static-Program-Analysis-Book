@@ -36,7 +36,7 @@ void foo(A a) {
 
 各个符号的定义为：
 
-<img src="F:\Gossip_Proj\SPA\Static-Program-Analysis-Book\.gitbook\assets\image-20201201151956869.png" alt="image-20201201151956869" style="zoom: 67%;" />
+<img src="F:\Gossip_Proj\SPA\Static-Program-Analysis-Book\.gitbook\assets\image-20201201151956869.png" style="zoom: 67%;" />
 
 ![](../.gitbook/assets/image-20201126230831572.png)
 

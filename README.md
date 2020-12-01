@@ -26,7 +26,6 @@ Getting started with static program analysis. Read this and start writing your f
 3. 通过邮箱联系我（ranger.nju\#gmail.com\)
    * 如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
 
-~~~~👋 ~~根据不完全统计，已经有数千次首页访问，每天都会有数十位世界各地的新读者到访，不过收到的意见和建议寥寥。~~
 
 ### 更新记录与里程碑事件
 

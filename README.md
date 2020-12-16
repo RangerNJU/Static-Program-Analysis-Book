@@ -6,31 +6,31 @@ Getting started with static program analysis. Read this and start writing your f
 
 > ❓ How to automatically and efficiently guarantee software quality
 
-静态程序分析入门。阅读此书并着手编写你的第一个静态程序分析器吧！本仓库关注一个非常重要的问题： 
+静态程序分析入门。阅读此书并着手编写你的第一个静态程序分析器吧！本仓库关注一个非常重要的问题：
 
 > ❓ 如何自动化地高效保障软件质量
 
 * [《静态程序分析》Gitbook在线阅读地址](https://ranger-nju.gitbook.io/static-program-analysis-book/)
+  * 有时gitbook需要科学上网才能访问，没法科学上网的小伙伴可以试试访问[这里](https://spa-book.pblo.gq/)。
 * [《静态程序分析》GitHub项目地址](https://github.com/RangerNJU/Static-Program-Analysis-Book)
 * 离线阅读方式
   1. 将本仓库**下载**到本地（安装Git后，在命令行中执行命令`git clone https://github.com/RangerNJU/Static-Program-Analysis-Book.git`）
   2. 周期性地**更新**，在仓库目录下执行`git pull`
   3. 使用[Typora](https://typora.io/)等本地Markdown阅读器**阅读**
 
-### 表达你的声音 👂 
+### 表达你的声音 👂
 
 * **批评的意见很有价值。** 这是我第一次书写教程，一定有很多做得不好的地方。如果你觉得有值得修改或值得讨论的地方（包括但不仅限于行文风格，内容准确性，图例与解释的易读性等等），可以选择：
-
-1. 加入QQ群（951182704）匿名或实名表达你的意见与看法
-2. 提issue
-3. 通过邮箱联系我（ranger.nju\#gmail.com\)
-   * 如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
-
+* 加入QQ群（951182704）匿名或实名表达你的意见与看法
+* 提issue
+* 通过邮箱联系我（ranger.nju\#gmail.com\)
+  * 如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。
 
 ### 更新记录与里程碑事件
 
-1. Oct, 2020. 设立Repo，一个月内获得Star、Fork和PR 🥳 
+1. Oct, 2020. 设立Repo，一个月内解锁Star、Fork和PR。
 2. Nov. 将IR与Data Flow Analysis的相关内容暂时移出仓库，更新七至十课——Interprocedural Analysis、Pointer Analysis-Introduction and Foundations。
+3. Dec. 更新十一和十二两课——Context Sensitive Pointer Analysis，指针分析大结局。🥳 
 
 ## 这一《静态程序分析》教程对谁有用？
 
@@ -58,7 +58,7 @@ Getting started with static program analysis. Read this and start writing your f
 
 #### 编程语言的分类
 
-当今的计算机世界，面对这样一条恶龙： 👇 
+当今的计算机世界，面对这样一条恶龙： 👇
 
 > 数十年来语言的核心没有变化，但软件的规模和复杂性增长迅速，如何保证程序的可靠性？
 
@@ -126,13 +126,15 @@ Getting started with static program analysis. Read this and start writing your f
   1. 学术门槛较高，学习者必须有良好的数学基础才能入门。
   2. 验证代价较高，一般来说非常重要的项目会使用这一方式保证程序质量。甚至在操作系统这样重要的软件中，也并不一定会使用。\(截图来自鸿蒙OS直播发布会\)
 
-![](.gitbook/assets/harmonyOS%20%281%29.png)
+![](.gitbook/assets/harmonyOS%20%284%29%20%284%29.png)
 
 ## 加入项目/How to contribute
 
 > 觉得有所帮助的话可以点个star支持哦。
 
 欢迎希望添加更好的讲解资料或对教程内容进行扩充的小伙伴 `fork, modify, PR` 三连。
+
+**提醒：引用图片时请使用相对路径。**
 
 ## 本地化/Localization
 

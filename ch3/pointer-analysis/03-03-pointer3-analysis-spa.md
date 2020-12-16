@@ -1,4 +1,4 @@
-# 指针分析理论基础二
+# 指针分析理论（下）
 
 首先回顾一下在上一篇文章中列出的大纲。
 
@@ -36,30 +36,30 @@ void foo(A a) {
 
 各个符号的定义为：
 
-<img src="F:\Gossip_Proj\SPA\Static-Program-Analysis-Book\.gitbook\assets\image-20201201151956869.png" style="zoom: 67%;" />
+![](../../.gitbook/assets/image-20201201151956869.png)
 
-![](../.gitbook/assets/image-20201126230831572.png)
+![](../../.gitbook/assets/image-20201126230831572.png)
 
->  一个参考答案：保存现场，构造调用栈帧，传递参数，跳转到目标函数开始执行……目标函数执行完毕跳转回来，后从预定的位置取返回值（若需要），恢复现场，继续往下执行……
+> 一个参考答案：保存现场，构造调用栈帧，传递参数，跳转到目标函数开始执行……目标函数执行完毕跳转回来，后从预定的位置取返回值（若需要），恢复现场，继续往下执行……
 
 在静态分析中，我们更多地关心数据流，而非控制流。而针对Java，处理函数调用的数据流可以分为以下四个部分：
 
 1. 确定目标方法。用第7课介绍过的Dispatch函数完成。
 2. 传receiver object
 
-![](../.gitbook/assets/image-20201126184745576.png)
+![](../../.gitbook/assets/image-20201126184745576.png)
 
-3. 传参数
+1. 传参数
 
-![](../.gitbook/assets/image-20201126185008506.png)
+![](../../.gitbook/assets/image-20201126185008506.png)
 
-4. 传返回值
+1. 传返回值
 
-![](../.gitbook/assets/image-20201126185233403.png)
+![](../../.gitbook/assets/image-20201126185233403.png)
 
 因此，我们可以对应规则，在PFG上添加Edge实现过程间信息的传递。完整的规则如下：
 
-![](../.gitbook/assets/image-20201126231116221.png)
+![](../../.gitbook/assets/image-20201126231116221.png)
 
 #### Detail-1
 
@@ -67,9 +67,9 @@ void foo(A a) {
 
 通过这两个图可以直观地说明原因：
 
-![](../.gitbook/assets/image-20201126231403264.png)
+![](../../.gitbook/assets/image-20201126231403264.png)
 
-![](../.gitbook/assets/image-20201126231437769.png)
+![](../../.gitbook/assets/image-20201126231437769.png)
 
 _在每次算法执行时，_$$o_i$$_是确定的某个（只有一个）对象，然后针对这个对象做Dispatch，能够找到对应的唯一的receiver object._
 
@@ -77,20 +77,20 @@ _在每次算法执行时，_$$o_i$$_是确定的某个（只有一个）对象�
 
 像之前用CHA做过程间分析时一样，我们需要将分析的过程和Call graph构建的过程结合起来。
 
-![](../.gitbook/assets/image-20201126231722298.png)
+![](../../.gitbook/assets/image-20201126231722298.png)
 
 不同的是，这次我们只分析从main方法（或者一般性地说，程序入口）开始可达的部分。原因有二：
 
 1. 提升分析速度。因为我们能够避免分析不会被执行到的死代码。
 2. 提升分析精度。避免了unreachable部分的代码调用reachable部分方法时可能引起的精度下降。
 
-![](../.gitbook/assets/image-20201126191225969.png)
+![](../../.gitbook/assets/image-20201126191225969.png)
 
 ## Algorithm: PA with Method Calls
 
 接下来介绍一个具体的、易于理解和实现的算法。由于指针分析是静态程序分析的基础，理解了这个看起来枯燥的算法后，更容易在静态程序分析领域触类旁通。~~而且据说后面两节课会学得更加轻松~~
 
-![](../.gitbook/assets/image-20201126191650221.png)
+![](../../.gitbook/assets/image-20201126191650221.png)
 
 算法整体上来说和上一节课所介绍的大框架相似，黄色标记的部分是这次新加入的部分。绿色部分是对新的全局变量的说明：
 
@@ -104,7 +104,7 @@ AddReachable的作用是：
 * **输入参数**m是最新的可达方法。
 * 函数修改维护全局的RM、S和$$S_m$$，并处理新的方法m中的New和Assign语句。
 
-![](../.gitbook/assets/image-20201126194125039.png)
+![](../../.gitbook/assets/image-20201126194125039.png)
 
 #### Detail-3
 
@@ -121,9 +121,9 @@ ProcessCall的作用是：
 * 输入的$$o_i$$是x新指向的目标。
 * 函数在可达的语句集合S中，选择所有与x有关的过程调用，做之前提到的数据流相关四步处理（确定被调用方法、传对象、传参数，传返回值）。
 
-![](../.gitbook/assets/image-20201126195311513.png)
+![](../../.gitbook/assets/image-20201126195311513.png)
 
-![](../.gitbook/assets/image-20201126195425756.png)
+![](../../.gitbook/assets/image-20201126195425756.png)
 
 ## Example
 
@@ -148,14 +148,13 @@ class B extends A {
 
 答案如下：
 
-![](../.gitbook/assets/image-20201126201000426.png)
+![](../../.gitbook/assets/image-20201126201000426.png)
 
 这个流不敏感的分析算法在分析精度上仍然可以改进。我们将在接下来的课程中学习精度更高的流敏感分析。
 
 ## Key points
 
-**The X You Need To Understand in This Lecture**
-
 * Pointer analysis **rule for method call**
 * **Algorithm** for inter-procedural pointer analysis 
 * **On-the-fly call graph construction**
+

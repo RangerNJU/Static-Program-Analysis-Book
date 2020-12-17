@@ -126,7 +126,7 @@ Getting started with static program analysis. Read this and start writing your f
   1. 学术门槛较高，学习者必须有良好的数学基础才能入门。
   2. 验证代价较高，一般来说非常重要的项目会使用这一方式保证程序质量。甚至在操作系统这样重要的软件中，也并不一定会使用。\(截图来自鸿蒙OS直播发布会\)
 
-![](.gitbook/assets/harmonyOS%20%284%29%20%284%29.png)
+![](.gitbook/assets/harmonyOS.png)
 
 ## 加入项目/How to contribute
 

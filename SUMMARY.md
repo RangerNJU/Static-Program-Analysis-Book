@@ -26,3 +26,5 @@
   * [上下文敏感分析（上）](ch3/context-sensitivity/03-04-context-sensitivity.md)
   * [上下文敏感分析（下）](ch3/context-sensitivity/03-05-cs2.md)
 
+## 指针分析应用 <a id="ch4"></a>
+* [安全应用——污点分析](ch4/04-01-security.md)

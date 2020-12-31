@@ -21,5 +21,5 @@
 * [第五课-数据流分析理论一](https://www.bilibili.com/video/BV1A741117it)
 * [第六课-数据流分析理论二](https://www.bilibili.com/video/BV1964y1M7nL)
 
-从[这里](https://ranger-nju.gitbook.io/static-program-analysis-book/ch4)直接跳转到施工完毕区域。
+从[这里](https://ranger-nju.gitbook.io/static-program-analysis-book/ch2)直接跳转到施工完毕区域。
 

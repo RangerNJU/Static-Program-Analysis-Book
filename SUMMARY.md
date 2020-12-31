@@ -4,7 +4,7 @@
 
 ## 前言 <a id="ch0"></a>
 
-* [写在前面](ch0/README.md)
+* [写在前面](ch0/ch0.md)
   * [为什么是这本书？](ch0/00-01-why-this-book.md)
   * [资料来源与版权信息](ch0/00-02-sources-and-license.md)
 
@@ -26,10 +26,13 @@
   * [上下文敏感分析（上）](ch3/context-sensitivity/03-04-context-sensitivity.md)
   * [上下文敏感分析（下）](ch3/context-sensitivity/03-05-cs2.md)
 
-## 指针分析应用 <a id="ch4"></a>
+## 指针分析应用与声明式实现 <a id="ch4"></a>
 
-* [安全应用——污点分析](ch4/04-01-security.md)
+* [应用——污点分析](ch4/04-01-security.md)
+* [实现——声明式指针分析](ch4/04-02-Datalog-Based-PA.md)
 
-## 指针分析的另一种样子 <a id="ch5"></a>
+## 其他话题 <a id="ch5"></a>
 
-* [声明式指针分析算法](ch5/05-01-Datalog-Based-PA.md)
+* [另一种静态分析框架——IFDS](ch5/05-01-IFDS.md)
+* [从Soundness到Soundiness](ch5/05-02-Soundiness.md)
+

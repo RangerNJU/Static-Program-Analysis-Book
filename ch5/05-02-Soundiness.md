@@ -132,7 +132,7 @@ JNI允许JVM与Native Code写出的Native Lib交互。进而提供与OS交互、
 
 <img src="05-02-Soundiness.assets/image-20201224200127291.png" style="zoom:50%;" />
 
-arraycory(src,3,dest,4,5)就是从src的第三个元素起，拷贝起始位置是dest的第四个元素，总共拷贝5个元素。
+arraycopy(src,3,dest,4,5)就是从src的第三个元素起，拷贝起始位置是dest的第四个元素，总共拷贝5个元素。
 
 如果不分析Native Code，我们就会失去很多信息。而Modeling的分析方法是：
 

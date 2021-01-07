@@ -19,7 +19,7 @@
 
 分别定义变量，域，对象（用下标标识是在第几行创建的对象），实例域和指针（是变量和实例对象的并），和指向关系。`X`表示笛卡尔积。
 
-pt\(p\)代表的是指针p可能指向的对象。如在下面的代码块后，pt\(x\)可能指向的目标可以记为$${o_2,o_4}$$（以行号作为object的下标）。
+pt\(p\)代表的是指针p可能指向的对象。如在下面的代码块后，pt\(x\)可能指向的目标可以记为$$ {o_2,o_4}$$（以行号作为object的下标）。
 
 ```java
 if(...){
@@ -67,8 +67,8 @@ _别处的资料都没有全家桶，只介绍某些特殊情况下的分析算�
 
 inclusion constraints的具体解释：在上述表示的结论部分中可以写作两个集合间的包含关系。如Load应该表示为：
 
-* 前提：`y=x.f`和 $$o_i \in pt(x)$$
-* 结论：$$pt(o_i.f) \subset pt(y)$$
+* 前提：`y=x.f`和 $$ o_i \in pt(x)$$
+* 结论：$$ pt(o_i.f) \subset pt(y)$$
 
 > Key to implementation: when 𝑝𝑡\(𝑥\)is **changed**, **propagate** the **changed par**t to the **related pointers** of 𝑥
 
@@ -92,7 +92,7 @@ inclusion constraints的具体解释：在上述表示的结论部分中可以�
 
 ### Example
 
-假设c和d一开始都指向 $$o_i$$，根据上述规则，我们能够从左侧的程序语句从上到下构建出右侧的指针流图。
+假设c和d一开始都指向 $$ o_i$$，根据上述规则，我们能够从左侧的程序语句从上到下构建出右侧的指针流图。
 
 ![](../../.gitbook/assets/image-20201105201746860.png)
 
@@ -111,7 +111,7 @@ PFG的整个构造过程，需要在构建PFG和在已有的PFG上传递指向�
 * 由于做流不敏感分析。输入为Set，丢失了语句的顺序关系也没关系。
 * WorkList：保存接下来要处理的指向信息，与BFS中的队列作用类似。
 * pts定义：Each worklist entry 𝑛, 𝑝𝑡𝑠 is a pair of pointer 𝑛 and points-to set 𝑝𝑡𝑠, which means that 𝑝𝑡𝑠 should be propagated to 𝑝𝑡\(𝑛\)
-  * E.g.,  $$[(x,\{o_i\}),(y,\{o_j, o_k\}),(x.f,\{(o_l)\}),\dots]$$
+  * E.g.,  $$ [(x,\{o_i\}),(y,\{o_j, o_k\}),(x.f,\{(o_l)\}),\dots]$$
 
 首先，四个红框部分对应之前提到的四种基本语句——New、Assign、Store和Load。接下来做详细讲解。
 
@@ -155,11 +155,11 @@ Solve(𝑆)
 
 ![](../../.gitbook/assets/image-20201112194234928.png)
 
-然后是b-&gt;c-&gt;d的传递路线，虽然 $$\{o_1, o_3\}$$之前已经在c所指向的集合中了，但依然需要参与传播，这是冗余的。
+然后是b-&gt;c-&gt;d的传递路线，虽然 $$ \{o_1, o_3\}$$之前已经在c所指向的集合中了，但依然需要参与传播，这是冗余的。
 
 ![](../../.gitbook/assets/image-20201112194358502.png)
 
-我们再来看使用Differential Propagation的情况，只需要传播$$\{o_5\}$$一项即可。在实际应用中这能够大大减小开销。
+我们再来看使用Differential Propagation的情况，只需要传播$$ \{o_5\}$$一项即可。在实际应用中这能够大大减小开销。
 
 ![](../../.gitbook/assets/image-20201112194555582.png)
 

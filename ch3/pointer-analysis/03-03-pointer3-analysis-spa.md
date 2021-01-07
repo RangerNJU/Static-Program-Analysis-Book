@@ -49,11 +49,11 @@ void foo(A a) {
 
 ![](../../.gitbook/assets/image-20201126184745576.png)
 
-1. 传参数
+3. 传参数
 
 ![](../../.gitbook/assets/image-20201126185008506.png)
 
-1. 传返回值
+4. 传返回值
 
 ![](../../.gitbook/assets/image-20201126185233403.png)
 
@@ -63,7 +63,7 @@ void foo(A a) {
 
 #### Detail-1
 
-**Question: Why not add PFG edge 𝑥 →** $$𝑚_{𝑡ℎ𝑖𝑠}$$**？**
+**Question: Why not add PFG edge 𝑥 →** $$ 𝑚_{𝑡ℎ𝑖𝑠}$$**？**
 
 通过这两个图可以直观地说明原因：
 
@@ -71,7 +71,7 @@ void foo(A a) {
 
 ![](../../.gitbook/assets/image-20201126231437769.png)
 
-_在每次算法执行时，_$$o_i$$_是确定的某个（只有一个）对象，然后针对这个对象做Dispatch，能够找到对应的唯一的receiver object._
+_在每次算法执行时，_$$ o_i$$_是确定的某个（只有一个）对象，然后针对这个对象做Dispatch，能够找到对应的唯一的receiver object._
 
 #### Detail-2
 
@@ -102,7 +102,7 @@ _在每次算法执行时，_$$o_i$$_是确定的某个（只有一个）对象�
 AddReachable的作用是：
 
 * **输入参数**m是最新的可达方法。
-* 函数修改维护全局的RM、S和$$S_m$$，并处理新的方法m中的New和Assign语句。
+* 函数修改维护全局的RM、S和$$ S_m$$，并处理新的方法m中的New和Assign语句。
 
 ![](../../.gitbook/assets/image-20201126194125039.png)
 
@@ -112,13 +112,13 @@ AddReachable的作用是：
 
 _l代表call site。可以用行号作为call site的label。_
 
-> Answer: $$o_j, o_k$$同样可能通过Dispatch返回同一个m。
+> Answer: $$ o_j, o_k$$同样可能通过Dispatch返回同一个m。
 
 ### Function:ProcessCall
 
 ProcessCall的作用是：
 
-* 输入的$$o_i$$是x新指向的目标。
+* 输入的$$ o_i$$是x新指向的目标。
 * 函数在可达的语句集合S中，选择所有与x有关的过程调用，做之前提到的数据流相关四步处理（确定被调用方法、传对象、传参数，传返回值）。
 
 ![](../../.gitbook/assets/image-20201126195311513.png)

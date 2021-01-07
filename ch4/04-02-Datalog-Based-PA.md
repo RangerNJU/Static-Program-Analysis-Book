@@ -47,7 +47,9 @@ Datalog是一种命令式（Declarative）的编程语言。
 Atoms可以分成两类
 
 -   Relational Atoms
-    -   <img src="04-02-Datalog-Based-PA.assets/image-20201223185504296.png" style="zoom:50%;" />
+
+<img src="04-02-Datalog-Based-PA.assets/image-20201223185504296.png" style="zoom:50%;" />
+
 -   Arithmetic Atoms
     -   如`age >= 18`
 
@@ -236,7 +238,9 @@ e = d.f;
 
 ## Datalog Model
 
-同样需要用户提供Source和Sink。输出被标记的数据可能流到的Sink方法。<img src="04-02-Datalog-Based-PA.assets/image-20201223201956852.png" style="zoom:50%;" />
+同样需要用户提供Source和Sink。输出被标记的数据可能流到的Sink方法。
+
+<img src="04-02-Datalog-Based-PA.assets/image-20201223201956852.png" style="zoom:50%;" />
 
 ## Datalog Rules
 

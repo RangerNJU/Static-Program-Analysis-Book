@@ -162,7 +162,9 @@ Java中的Pointers有以下几类：
 * Array element: array\[i\]
   * 涉及数组的分析中，我们**忽略下标**，代之以一个域（a single field）。例如，在下图中我们用arr表示。
 * 原因之一：数组下标是变量时难以计算具体值
-  * 在之后介绍的算法中，**可作为Instance field处理**![](../../.gitbook/assets/image-20201105194030384.png)
+  * 在之后介绍的算法中，**可作为Instance field处理**
+
+![](../../.gitbook/assets/image-20201105194030384.png)
 
 ### 关注的语句类型
 

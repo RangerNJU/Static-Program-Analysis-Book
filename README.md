@@ -160,3 +160,14 @@ We'd love help translating this book! Open a new issue to start working on a new
 
 [适合复习，个人博客笔记](https://fancypei.github.io/SA/)
 
+## 进一步学习的资料
+
+### 课程视频和阅读资料
+
+- 北大熊英飞老师的《软件分析技术》课程视频公开在了[这里](https://liveclass.org.cn/cloudCourse/#/courseDetail/8mI06L2eRqk8GcsW)。
+- CMU Jonathan Aldrich老师的[《17-355/17-665/17-819 Program Analysis》(2019 Spring)](https://www.cs.cmu.edu/~aldrich/courses/17-355-19sp/)。
+- Anders Møller and Michael I. Schwartzbach的《lecture notes on Static Program analysis》
+
+### 开源软件
+
+- [Pysonar2的GitHub Repo](https://github.com/yinwang0/pysonar2)

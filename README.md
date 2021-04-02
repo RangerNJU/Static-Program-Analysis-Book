@@ -31,6 +31,7 @@ Getting started with static program analysis. Read this and start writing your f
 1. Oct, 2020. 设立Repo，一个月内解锁Star、Fork和PR。
 2. Nov. 将IR与Data Flow Analysis的相关内容暂时移出仓库，更新七至十课——Interprocedural Analysis、Pointer Analysis-Introduction and Foundations。
 3. Dec. 更新十一和十二两课——Context Sensitive Pointer Analysis，指针分析大结局。🥳 更新十三十四课介绍指针分析的安全应用Taint Analysis和使用Datalog实现声明式指针分析算法。 更新十五十六课介绍IFDS分析框架和Soundiness。
+4. APR, 2021. 由[Lancern](https://github.com/Lancern)开始英文翻译。
 
 图文的主体部分更新完毕，撒花~！
 
@@ -145,6 +146,8 @@ Getting started with static program analysis. Read this and start writing your f
 ## 本地化/Localization
 
 We'd love help translating this book! Open a new issue to start working on a new language. Feel free to start :\)
+
+-   [English translation](https://github.com/Lancern/Static-Program-Analysis-Book)
 
 ## 其他相关项目
 

@@ -114,7 +114,7 @@ Getting started with static program analysis. Read this and start writing your f
 
 * 优点：在选定的精度下能够保证没有bug。这在教程中会详细介绍。
 * 缺点：
-  1. 学术门槛相对高。目前国内高校只有北京大学和南京大学开设有关课程，且暂无教材。作为一门计算机专业的高年级选修课，入门和提高都较困难。
+  1. 学术门槛相对高。目前已知国内高校公开的课程资料只有北京大学，南京大学，国防科大，吉林大学的，且通俗易懂的教材稀少（详细课程及教材链接见[本文末尾](#refs)）。作为一门计算机专业的高年级选修课，入门和提高都较困难。
   2. You tell me.
 
 #### 动态软件测试
@@ -164,13 +164,19 @@ We'd love help translating this book! Open a new issue to start working on a new
 [适合复习，个人博客笔记](https://fancypei.github.io/SA/)
 
 ## 进一步学习的资料
-
+<span id="refs"></span>
 ### 课程视频和阅读资料
 
 - 北大熊英飞老师的《软件分析技术》课程视频公开在了[这里](https://liveclass.org.cn/cloudCourse/#/courseDetail/8mI06L2eRqk8GcsW)。
 - CMU Jonathan Aldrich老师的[《17-355/17-665/17-819 Program Analysis》(2019 Spring)](https://www.cs.cmu.edu/~aldrich/courses/17-355-19sp/)。
-- Anders Møller and Michael I. Schwartzbach的《lecture notes on Static Program analysis》
+- Anders Møller and Michael I. Schwartzbach的[《Static Program analysis》](https://cs.au.dk/~amoeller/spa/) 以及配套的 [《Lecture Notes on Static Analysis》](https://lara.epfl.ch/w/_media/sav08:schwartzbach.pdf), [视频](https://www.bilibili.com/video/BV17K4y1t727) (推荐开启cc英文字幕)
+- 张健, 张超, 玄跻峰, 熊英飞, 王千祥, 梁彬, 李炼, 窦文生, 陈振邦, 陈立前, 蔡彦. 程序分析研究进展. 软件学报, 2019, 30(1): 80-109.http://www.jos.org.cn/1000-9825/5651.htm
+- 国防科技大学陈立前老师的[《高可信软件技术-程序分析部分》](https://www.educoder.net/classrooms/7759/attachment)
+- 吉林大学刘磊老师的《程序分析技术》24集视频（超星/尔雅学术视频，需要账号登录搜索，B站上视频不全），[书籍](https://book.douban.com/subject/24733130/) 。算是国内最早的公开视频以及专门的教材了
+- 东南大学李必信老师的[《程序切片技术及其应用》](https://book.douban.com/subject/1815952/)
 
 ### 开源软件
 
 - [Pysonar2的GitHub Repo](https://github.com/yinwang0/pysonar2)
+- [Soot的GitHub Repo](https://github.com/soot-oss/soot)
+  - [Wiki Tutorial：入门Soot时很重要的资料](https://github.com/soot-oss/soot/wiki/Tutorials)

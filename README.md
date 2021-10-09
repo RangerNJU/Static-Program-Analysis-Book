@@ -17,6 +17,8 @@ Getting started with static program analysis. Read this and start writing your f
   1. 将本仓库**下载**到本地（安装Git后，在命令行中执行命令`git clone https://github.com/RangerNJU/Static-Program-Analysis-Book.git`）
   2. 周期性地**更新**，在仓库目录下执行`git pull`
   3. 使用[Typora](https://typora.io/)等本地Markdown阅读器**阅读**
+* 作业, 克隆仓库时, 推荐递归克隆子项目homework
+  - git clone --recursive {git仓库}
 
 ### 表达你的声音 👂
 

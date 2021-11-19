@@ -1,0 +1,3 @@
+[submodule "homework"]
+	path = homework
+	url = git@github.com:canliture/nju-software-analysis-homework.git

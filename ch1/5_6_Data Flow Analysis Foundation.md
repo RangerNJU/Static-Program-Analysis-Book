@@ -281,4 +281,10 @@ worklist 是迭代算法的优化。
 
 ## 划重点
 
-![image-20211009201714124](img/5_6_Data Flow Analysis Foundation/image-20211009201714124.png)
+* 理解函数视角下的迭代算法
+* 对于 lattice 和 complete lattice 的定义
+* 理解不动点定理
+* 知道如何用 lattice 来概述 may 和 must analysis
+* MOP与迭代算法结果之间的关系
+* 常量传播分析
+* Worklist 算法

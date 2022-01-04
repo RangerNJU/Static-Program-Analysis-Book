@@ -16,7 +16,7 @@
 
 为什么在静态分析的时候，使用 IR 而非 AST 呢？
 
-![image-20210909175715157](img\2_Intermediate Representation\image-20210909175715157.png)
+<img src="img/2_Intermediate Representation/image-20210909175715157.png" alt="image-20210909175715157"  />
 
 这是因为：
 
@@ -32,7 +32,7 @@
 
 三地址码（3-Address Code）通常没有统一的格式。在每个指令的右边至多有一个操作符。
 
-![image-20210909180558685](img\2_Intermediate Representation\image-20210909180558685.png)
+<img src="img/2_Intermediate Representation/image-20210909180558685.png" alt="image-20210909180558685"  />
 
 三地址码为什么叫做三地址码呢？因为每条 3AC 至多有三个地址。而一个「地址」可以是：
 
@@ -53,7 +53,7 @@
 
 ## 3AC in Real Static Analyzer: Soot
 
-以上的 3AC 比较抽象，来看看现实中的 3AC。Soot 是 Java 的静态分析框架，其中的 IR 叫做 Jimple。2021 年起的课程将使用一个新的框架来做试验，名叫 Tailor。
+以上的 3AC 比较抽象，来看看现实中的 3AC。Soot 是 Java 的静态分析框架，其中的 IR 叫做 Jimple。2021 年起的课程将使用一个新的框架来做试验，名叫 Tai-e。
 
 关于这部分的内容，可以查看网课部分，因为主要是给大家感受一下 Jimple 的模样，并没有知识点要求。
 
@@ -75,7 +75,7 @@ q = p + q    q2 = p2 + q1
 
 但是这样一来，肯定会因为不同控制流汇入到一个块，导致多个变量备选的问题：
 
-![image-20210909192230838](img\2_Intermediate Representation\image-20210909192230838.png)
+<img src="img/2_Intermediate Representation/image-20210909192230838.png" alt="image-20210909192230838" style="zoom:80%;" />
 
 这里解决的办法就是使用一个合并操作符$\phi$（phi-function），根据控制流的信息确定使用哪个变量。
 
@@ -97,14 +97,14 @@ q = p + q    q2 = p2 + q1
 
 控制流分析（Control Flow Analysis）通常指的是构建控制流图（Control Flow Graph, CFG），并以 CFG 作为基础结构进行静态分析的过程。
 
-![image-20210909193624370](img\2_Intermediate Representation\image-20210909193624370.png)
+<img src="img/2_Intermediate Representation/image-20210909193624370.png" alt="image-20210909193624370" style="zoom:80%;" />
 
 CFG 的一个结点可以是一条单独的 3AC，但是更常见的是一个基本块（Basic Block）。所谓基本块，就是满足以下性质的连续 3AC：
 
 * 只能从块的第一条指令进入。
 * 只能从块的最后一条指令离开。
 
-![image-20210909193825373](img\2_Intermediate Representation\image-20210909193825373.png)
+<img src="img/2_Intermediate Representation/image-20210909193825373.png" alt="image-20210909193825373" style="zoom:80%;" />
 
 
 
@@ -120,18 +120,18 @@ CFG 的一个结点可以是一条单独的 3AC，但是更常见的是一个基
   2. 构建 P 的基本块
      * 一个基本块就是一个 leader 及其后续直到下一个 leader 前的所有指令。
 
-![image-20210909194221057](img\2_Intermediate Representation\image-20210909194221057.png)
+<img src="img/2_Intermediate Representation/image-20210909194221057.png" alt="image-20210909194221057" style="zoom:80%;" />
 
 除了基本块，CFG 中还会有块到块的边。块 A 和块 B 之间有一条边，当且仅当：
 
 * <font color="red">A 的末尾有一条指向了 B 开头的跳转指令。</font>
 * <font color="blue">A 的末尾紧接着 B 的开头</font>，<font color="green">且 A 的末尾不是一条无条件跳转指令。</font>
 
-![image-20210909194550772](img\2_Intermediate Representation\image-20210909194550772.png)
+<img src="img/2_Intermediate Representation/image-20210909194550772.png" alt="image-20210909194550772" style="zoom:80%;" />
 
 注意到每个基本块和开头指令的标号唯一对应，因此很自然地，我们可以将跳转指令的目标改为基本块的标号而非指令标号：
 
-![image-20210909194912657](img\2_Intermediate Representation\image-20210909194912657.png)
+<img src="img/2_Intermediate Representation/image-20210909194912657.png" alt="image-20210909194912657" style="zoom:80%;" />
 
 有了这些定义，我们就可以了解一些概念：
 
@@ -145,7 +145,7 @@ CFG 的一个结点可以是一条单独的 3AC，但是更常见的是一个基
 
 这样，我们就完成了一个控制流图的构建：
 
-![image-20210909195613197](img\2_Intermediate Representation\image-20210909195613197.png)
+<img src="img/2_Intermediate Representation/image-20210909195613197.png" alt="image-20210909195613197" style="zoom:80%;" />
 
 ## 划重点
 

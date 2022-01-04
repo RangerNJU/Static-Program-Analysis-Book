@@ -57,7 +57,7 @@ $$
 * 在 S 的所有上界中，我们记最小上界（Least upper bound, lub）为$\sqcup S$，满足所有上界 u 对 lub 有： $\sqcup S \sqsubseteq u$ 
 * 类似地我们也能定义出最大下界（Greatest lower bound, glb）为$\sqcap S$。
 
-![image-20210923162141398](.\img\5_6_Data Flow Analysis Foundation\image-20210923162141398.png)
+<img src=".\img\5_6_Data Flow Analysis Foundation\image-20210923162141398.png" alt="image-20210923162141398"  />
 
 当 S 的元素个数只有两个{a, b}时，我们还可以有另一种记法：
 
@@ -115,7 +115,7 @@ $$
 
 从而，数据流分析可以被视为在 lattice 的值上迭代地应用转移方程和 meet/join 操作符。
 
-![image-20210923165949698](.\img\5_6_Data Flow Analysis Foundation\image-20210923165949698.png)
+<img src=".\img\5_6_Data Flow Analysis Foundation\image-20210923165949698.png" alt="image-20210923165949698"  />
 
 
 
@@ -169,7 +169,7 @@ FIxed Point Theorem 不动点定理：给定一个全格$(L,\sqsubseteq)$，如�
 
 这里分两部分。
 
-1. 转移函数，即 gen/kill，显然是单调的。
+1. 转移函数，即 OUT = gen U (IN - kill)，显然是单调的。
 2. 那么 join/meet 函数，我们要证明其单调，就是要证明：$\forall x,y,z\in L, x\sqsubseteq y$，有$x \sqcup z \sqsubseteq y \sqcup z$。
     1. 由定义，$y \sqsubseteq y \sqcup z$
     2. 由传递性，$x \sqsubseteq y \sqcup z$
@@ -221,15 +221,15 @@ FIxed Point Theorem 不动点定理：给定一个全格$(L,\sqsubseteq)$，如�
 
 我们引入 Meet-Over-All-Paths Solution，即 MOP。在这个 solution 中，我们不是根据节点与其前驱/后继节点的关系来迭代计算数据流，而是直接查找所有路径，根据所有路径的计算结果再取上/下界。这个结果是最理想的结果。
 
-![image-20211009192219561](img/5_6_Data Flow Analysis Foundation/image-20211009192219561.png)
+<img src="img/5_6_Data Flow Analysis Foundation/image-20211009192219561.png" alt="image-20211009192219561" style="zoom:67%;" />
 
-![image-20211009193258050](img/5_6_Data Flow Analysis Foundation/image-20211009193258050.png)
+<img src="img/5_6_Data Flow Analysis Foundation/image-20211009193258050.png" alt="image-20211009193258050" style="zoom:67%;" />
 
 可以看到，迭代算法是 s3 对前驱取 join 后进行进行 f3 的转移，而 MOP 算法是对到达 s3 之后，s4 之前的路径结果取 join。
 
 那么迭代算法和 MOP 哪个更精确呢？我们可以证明，$F(x)\sqcup F(y)\sqsubseteq F(x\sqcup y)$：
 
-![image-20211009193822041](img/5_6_Data Flow Analysis Foundation/image-20211009193822041.png)
+<img src="img/5_6_Data Flow Analysis Foundation/image-20211009193822041.png" alt="image-20211009193822041" style="zoom:67%;" />
 
 这表明 MOP 是更为精确的。
 
@@ -241,7 +241,7 @@ FIxed Point Theorem 不动点定理：给定一个全格$(L,\sqsubseteq)$，如�
 
 当然有些问题下 F 是不可分配的，如常量传播（Constant Propagation）。
 
-![image-20211009194808421](img/5_6_Data Flow Analysis Foundation/image-20211009194808421.png)
+<img src="img/5_6_Data Flow Analysis Foundation/image-20211009194808421.png" alt="image-20211009194808421" style="zoom:67%;" />
 
 在常量传播分析中，其最大上界是 undefine，因为我们不知道一个变量到底被定义为了什么值。最小下界是 NAC（Not A Constant），而中间就是各种常量。这是因为分析一个变量指向的值是否为常量，那么要么它是同一个值，要么它不是常量。
 
@@ -251,7 +251,7 @@ FIxed Point Theorem 不动点定理：给定一个全格$(L,\sqsubseteq)$，如�
 
 其中我们根据赋值号右边的不同，决定不同的 gen 函数：
 
-![image-20211009195346660](img/5_6_Data Flow Analysis Foundation/image-20211009195346660.png)
+<img src="img/5_6_Data Flow Analysis Foundation/image-20211009195346660.png" alt="image-20211009195346660" style="zoom:67%;" />
 
 注意，const + undef -> undef。因为 undef 变成 const 的过程中是降级，而如果 const1 + undef -> const2，那么 undef 变化为 const 时，const2 会发生改变，原来的 const2 与现在的 const2 不具有偏序关系，那么就不满足偏序关系的单调性了。
 
@@ -273,7 +273,7 @@ FIxed Point Theorem 不动点定理：给定一个全格$(L,\sqsubseteq)$，如�
 
 worklist 是迭代算法的优化。
 
-![image-20211009200914835](img/5_6_Data Flow Analysis Foundation/image-20211009200914835.png)
+<img src="img/5_6_Data Flow Analysis Foundation/image-20211009200914835.png" alt="image-20211009200914835" style="zoom:67%;" />
 
 在 Worklist 算法中，只在基本块的 fact 发生变化处理其相关基本块，不必再在每次有 fact 变化时处理所有的基本块了。
 

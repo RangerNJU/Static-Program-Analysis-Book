@@ -16,7 +16,7 @@
 
 为什么在静态分析的时候，使用 IR 而非 AST 呢？
 
-<img src="img/2_Intermediate Representation/image-20210909175715157.png" alt="image-20210909175715157"  />
+<img src="img/2_Intermediate Representation/image-20210909175715157.png" alt="image-20210909175715157" style="zoom: 200%;" />
 
 这是因为：
 

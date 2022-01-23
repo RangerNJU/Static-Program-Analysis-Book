@@ -12,9 +12,9 @@
 ## 数据流分析 <a id="ch1"></a>
 
 * [静态程序分析简介与数据流分析](ch1/ch1.md)
-* [中间表示](ch1/2_Intermediate Representation.md)
-* [数据流分析上](ch1/3_4_Data Flow Analysis.md)
-* [数据流分析下](ch1/5_6_Data Flow Analysis Foundation.md)
+* [中间表示](ch1/ch1/2IntermediateRepresentation.md)
+* [数据流分析上](ch1/34DataFlowAnalysis.md)
+* [数据流分析下](ch1/56DataFlowAnalysisFoundation.md)
 
 ## 过程间分析 <a id="ch2"></a>
 

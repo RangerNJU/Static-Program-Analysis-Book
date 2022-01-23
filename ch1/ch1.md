@@ -10,9 +10,11 @@
 * 首先介绍数据流分析的应用，让学习者有直观感受
 * 然后从理论上深入讲解数据流分析背后的逻辑
 
-**注：这一部分在B站上有相应的视频。在作者腾出时间整理文稿之前，建议读者先到B站观看相应的视频。对应的文字部分暂时移出本仓库。**
+**注：~~这一部分在B站上有相应的视频。~~ 建议读者结合B站视频食用。**
 
-对应的视频在这里：
+(Update@20220124 [完整的官方视频](https://www.bilibili.com/read/cv14416770)已发布，1至6课文稿更新。祝大家玩的愉快！)
+
+1至6课对应的视频在这里：
 
 * [第一课-课程简介](https://www.bilibili.com/video/BV1b7411K7P4?from=search&seid=9629980298568702440)
 * [第二课-中间表示\(IR\)](https://www.bilibili.com/video/BV1zE411s77Z)
@@ -20,6 +22,3 @@
 * [第四课-数据流分析二](https://www.bilibili.com/video/BV19741197zA)
 * [第五课-数据流分析理论一](https://www.bilibili.com/video/BV1A741117it)
 * [第六课-数据流分析理论二](https://www.bilibili.com/video/BV1964y1M7nL)
-
-从[这里](https://ranger-nju.gitbook.io/static-program-analysis-book/ch2)直接跳转到施工完毕区域。
-

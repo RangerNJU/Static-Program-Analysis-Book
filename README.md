@@ -23,7 +23,7 @@ Getting started with static program analysis. Read this and start writing your f
 ### 表达你的声音 👂
 
 * **批评的意见很有价值。** 这是我第一次书写教程，一定有很多做得不好的地方。如果你觉得有值得修改或值得讨论的地方（包括但不仅限于行文风格，内容准确性，图例与解释的易读性等等），可以选择：
-* 加入QQ群（951182704）匿名或实名表达你的意见与看法
+* 加入QQ群（951182704）匿名或实名表达你的意见与看法（Update@20220124 QQ群已满200人，请科学上网加入TG群:t.me/spa_book）
 * 提issue
 * 通过邮箱联系我（ranger.nju\#gmail.com\)
   * 如果你觉得我写得不错，可以到GitHub仓库中给我一个Star，也可以在自己的社交圈子中宣传，让更多的人了解这个项目。

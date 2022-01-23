@@ -7,11 +7,14 @@
 * [写在前面](ch0/ch0.md)
   * [为什么是这本书？](ch0/00-01-why-this-book.md)
   * [资料来源与版权信息](ch0/00-02-sources-and-license.md)
+* [课程介绍与实验进度安排](ch1/1_Intro.md)
 
 ## 数据流分析 <a id="ch1"></a>
 
 * [静态程序分析简介与数据流分析](ch1/ch1.md)
-* [第二课-中间表示](ch1/Lec2.md)
+* [中间表示](ch1/2_Intermediate Representation.md)
+* [数据流分析上](ch1/3_4_Data Flow Analysis.md)
+* [数据流分析下](ch1/5_6_Data Flow Analysis Foundation.md)
 
 ## 过程间分析 <a id="ch2"></a>
 

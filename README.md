@@ -13,6 +13,8 @@ Getting started with static program analysis. Read this and start writing your f
 * [《静态程序分析》Gitbook在线阅读地址](https://ranger-nju.gitbook.io/static-program-analysis-book/)
   * 有时gitbook需要科学上网才能访问，没法科学上网的小伙伴可以试试访问[这里](https://spa-book.pblo.gq/)。
 * [《静态程序分析》GitHub项目地址](https://github.com/RangerNJU/Static-Program-Analysis-Book)
+* [南京大学《软件分析》实验作业平台 “太阿” 官方文档在线阅读地址](https://tai-e.pascal-lab.net/)
+* [南京大学《软件分析》实验作业平台 “太阿” GitHub 项目地址](https://github.com/pascal-lab/Tai-e-assignments/)
 * 离线阅读方式
   1. 将本仓库**下载**到本地（安装Git后，在命令行中执行命令`git clone https://github.com/RangerNJU/Static-Program-Analysis-Book.git`）
   2. 周期性地**更新**，在仓库目录下执行`git pull`
@@ -35,6 +37,7 @@ Getting started with static program analysis. Read this and start writing your f
 3. Dec. 更新十一和十二两课——Context Sensitive Pointer Analysis，指针分析大结局。🥳 更新十三十四课介绍指针分析的安全应用Taint Analysis和使用Datalog实现声明式指针分析算法。 更新十五十六课介绍IFDS分析框架和Soundiness。
 4. APR, 2021. 由[Lancern](https://github.com/Lancern)开始英文翻译。
 5. Sept. 新学期开始补充前八课的笔记版本。
+6. Apr, 2022. [南京大学《软件分析》实验作业平台 “太阿” 正式发布](https://zhuanlan.zhihu.com/p/488957195)。
 
 图文的主体部分更新完毕，撒花~！
 

@@ -1,5 +1,11 @@
 # 简介
 
+## 资料来源及食用方法@2022
+
+- 来源与课件：本仓库由南京大学的课程[《软件分析》（附课件）](https://pascal-group.bitbucket.io/teaching.html)的笔记修改而来。内容版权归[李樾](https://yuelee.bitbucket.io/)、[谭添](https://silverbullettt.bitbucket.io/)两位老师所有。
+- 课程视频：2021年[甜品专家](https://space.bilibili.com/2919428/video)在B站上传了2020年春季学期完整的课程视频。
+- 实验平台：2022年发布了实验作业平台相关的[代码](https://github.com/RangerNJU/Static-Program-Analysis-Book/pull/15)。
+
 ## 简介
 
 Getting started with static program analysis. Read this and start writing your first static program analyzer! We focus on the problem:

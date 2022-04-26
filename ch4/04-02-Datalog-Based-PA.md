@@ -1,6 +1,6 @@
 # Datalog-Based Program Analysis
 
-Datalog是一种命令式（Declarative）的编程语言。
+Datalog是一种声明式（Declarative）的编程语言。
 
 主要内容如下：
 

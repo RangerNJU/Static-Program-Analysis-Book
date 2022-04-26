@@ -1,3 +1,6 @@
 [submodule "homework"]
 	path = homework
 	url = git@github.com:canliture/nju-software-analysis-homework.git
+[submodule "Tai-e-assignments"]
+	path = Tai-e-assignments
+	url = https://github.com/pascal-lab/Tai-e-assignments

@@ -44,6 +44,7 @@ Getting started with static program analysis. Read this and start writing your f
 4. APR, 2021. 由[Lancern](https://github.com/Lancern)开始英文翻译。
 5. Sept. 新学期开始补充前八课的笔记版本。
 6. Apr, 2022. [南京大学《软件分析》实验作业平台 “太阿” 正式发布](https://zhuanlan.zhihu.com/p/488957195)。
+7. Jul, 2022. [“太阿”（科研版）静态程序分析框架正式发布](https://zhuanlan.zhihu.com/p/547780818)
 
 图文的主体部分更新完毕，撒花~！
 

@@ -182,10 +182,13 @@ We'd love help translating this book! Open a new issue to start working on a new
 - 北大熊英飞老师的《软件分析技术》课程视频公开在了[这里](https://liveclass.org.cn/cloudCourse/#/courseDetail/8mI06L2eRqk8GcsW)。
 - CMU Jonathan Aldrich老师的[《17-355/17-665/17-819 Program Analysis》(2019 Spring)](https://www.cs.cmu.edu/~aldrich/courses/17-355-19sp/)。
 - Anders Møller and Michael I. Schwartzbach的[《Static Program analysis》](https://cs.au.dk/~amoeller/spa/) 以及配套的 [《Lecture Notes on Static Analysis》](https://lara.epfl.ch/w/_media/sav08:schwartzbach.pdf), [视频](https://www.bilibili.com/video/BV17K4y1t727) (推荐开启cc英文字幕)
+- Principles of Program Analysis
+  - 中文版本：[《程序分析原理》](https://book.douban.com/subject/35970106/)
 - 张健, 张超, 玄跻峰, 熊英飞, 王千祥, 梁彬, 李炼, 窦文生, 陈振邦, 陈立前, 蔡彦. 程序分析研究进展. 软件学报, 2019, 30(1): 80-109.http://www.jos.org.cn/1000-9825/5651.htm
 - 国防科技大学陈立前老师的[《高可信软件技术-程序分析部分》](https://www.educoder.net/classrooms/7759/attachment)
 - 吉林大学刘磊老师的《程序分析技术》24集视频（超星/尔雅学术视频，需要账号登录搜索，B站上视频不全），[书籍](https://book.douban.com/subject/24733130/) 。算是国内最早的公开视频以及专门的教材了
 - 东南大学李必信老师的[《程序切片技术及其应用》](https://book.douban.com/subject/1815952/)
+- 北京邮电大学的[《源代码分析》](https://book.douban.com/subject/30819079/)
 
 ### 开源软件
 

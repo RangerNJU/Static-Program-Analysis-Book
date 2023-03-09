@@ -17,7 +17,6 @@ Getting started with static program analysis. Read this and start writing your f
 > ❓ 如何自动化地高效保障软件质量
 
 * [《静态程序分析》Gitbook在线阅读地址](https://ranger-nju.gitbook.io/static-program-analysis-book/)
-  * 有时gitbook需要科学上网才能访问，没法科学上网的小伙伴可以试试访问[这里](https://spa-book.pblo.gq/)。
 * [《静态程序分析》GitHub项目地址](https://github.com/RangerNJU/Static-Program-Analysis-Book)
 * [南京大学《软件分析》实验作业平台 “太阿” 官方文档在线阅读地址](https://tai-e.pascal-lab.net/)
 * [南京大学《软件分析》实验作业平台 “太阿” GitHub 项目地址](https://github.com/pascal-lab/Tai-e-assignments/)
